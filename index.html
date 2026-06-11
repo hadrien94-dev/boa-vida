@@ -11,6 +11,7 @@
     :root {
       --cream:      #FAF8F3;
       --cream-mid:  #EDE8DF;
+      --warm-cream: #FDFBF7;
       --blue:       #1B3A6B;
       --blue-light: #2B5BA8;
       --blue-pale:  #D6E2F5;
@@ -19,6 +20,9 @@
       --ink-muted:  #5A554E;
       --white:      #FFFFFF;
       --gold:       #C8A84B;
+      --terracotta: #D0533C;
+      --warm-pale:  #FBEFEA;
+      --warm-border:#EEDCCC;
     }
 
     html { scroll-behavior: smooth; }
@@ -78,14 +82,10 @@
     .nav-social-btn {
       background: var(--blue); color: var(--white);
       border: none; border-radius: 4px;
-      padding: 0.5rem 1.1rem; font-size: 0.8rem; font-weight: 600;
+      padding: 0.5rem; font-size: 0.8rem; font-weight: 600;
       cursor: pointer; transition: background 0.2s;
       text-transform: uppercase; letter-spacing: 0.05em;
-      text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
-    }
-    
-    .nav-social-btn.icon-only {
-      padding: 0.5rem;
+      text-decoration: none; display: flex; align-items: center; justify-content: center;
     }
 
     .nav-social-btn:hover { background: var(--blue-light); }
@@ -105,8 +105,8 @@
     }
     
     .hero-text {
-      padding: 5rem 4rem 5rem 5rem;
-      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 4rem 5rem 5rem;
+      display: flex; flex-direction: column; justify-content: flex-start;
     }
     
     .hero-eyebrow {
@@ -168,13 +168,12 @@
     .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
 
     .hero-visual {
-      position: relative; overflow: hidden;
-      display: grid; grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+      display: block;
       min-height: calc(100vh - 64px);
     }
     
     .hero-photo {
+      height: 100%;
       overflow: hidden; position: relative;
     }
     
@@ -183,9 +182,7 @@
       transition: transform 0.6s ease;
     }
     
-    .hero-photo:hover img { transform: scale(1.04); }
-    
-    .hero-photo.span2 { grid-column: span 2; }
+    .hero-photo:hover img { transform: scale(1.02); }
 
     .azulejo-divider {
       height: 48px;
@@ -242,6 +239,8 @@
       max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.65;
     }
 
+    #page-menu { background: var(--warm-cream); }
+
     .menu-wrap { max-width: 1080px; margin: 0 auto; padding: 5rem 2rem; }
     
     .menu-tabs {
@@ -251,13 +250,13 @@
     .tab-btn {
       padding: 0.55rem 1.3rem; border-radius: 30px;
       font-size: 0.82rem; font-weight: 500; cursor: pointer;
-      border: 1.5px solid var(--cream-mid);
+      border: 1.5px solid var(--warm-border);
       background: var(--white); color: var(--ink-muted);
       transition: all 0.2s; letter-spacing: 0.03em;
     }
     
     .tab-btn.active, .tab-btn:hover {
-      background: var(--blue); color: var(--white); border-color: var(--blue);
+      background: var(--terracotta); color: var(--white); border-color: var(--terracotta);
     }
     
     .menu-category { display: none; }
@@ -272,11 +271,11 @@
     .menu-card {
       background: var(--white); border-radius: 8px;
       padding: 1.4rem 1.5rem;
-      border: 1px solid var(--cream-mid);
+      border: 1px solid var(--warm-border);
       transition: box-shadow 0.2s, transform 0.2s;
     }
     
-    .menu-card:hover { box-shadow: 0 6px 24px rgba(27,58,107,0.08); transform: translateY(-2px); }
+    .menu-card:hover { box-shadow: 0 8px 25px rgba(208, 83, 60, 0.08); transform: translateY(-3px); }
     
     .menu-card-top {
       display: flex; justify-content: space-between;
@@ -289,7 +288,7 @@
     }
     
     .menu-card-price {
-      font-weight: 700; color: var(--blue); font-size: 0.95rem;
+      font-weight: 700; color: var(--terracotta); font-size: 0.95rem;
       white-space: nowrap; margin-left: 0.5rem;
     }
     
@@ -301,13 +300,13 @@
     .menu-card-tag {
       display: inline-block; font-size: 0.68rem; font-weight: 600;
       padding: 0.18rem 0.55rem; border-radius: 3px;
-      background: var(--blue-pale); color: var(--blue);
+      background: var(--warm-pale); color: var(--terracotta);
       letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.7rem;
     }
     
     .menu-note {
       font-size: 0.8rem; color: var(--ink-muted); font-style: italic;
-      margin-top: 0.6rem; background: var(--cream-mid);
+      margin-top: 0.6rem; background: var(--warm-cream);
       padding: 0.5rem 0.8rem; border-radius: 4px;
     }
 
@@ -440,39 +439,6 @@
     .value-card p { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; }
 
     .avis-wrap { max-width: 1020px; margin: 0 auto; padding: 5rem 2rem; }
-    
-    .avis-summary {
-      display: flex; align-items: center; gap: 3rem;
-      background: var(--white-tile); border-radius: 12px;
-      padding: 2.5rem 3rem; margin-bottom: 3rem;
-      border: 1px solid var(--blue-pale);
-    }
-    
-    .avis-big-score { text-align: center; min-width: 120px; }
-    
-    .avis-big-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem; font-weight: 700; color: var(--blue); line-height: 1;
-    }
-    
-    .avis-big-stars { font-size: 1.3rem; color: var(--gold); margin: 0.3rem 0; }
-    
-    .avis-big-count { font-size: 0.82rem; color: var(--ink-muted); }
-    
-    .avis-bars { flex: 1; }
-    
-    .avis-bar-row {
-      display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;
-    }
-    
-    .avis-bar-label { font-size: 0.78rem; color: var(--ink-muted); min-width: 12px; }
-    
-    .avis-bar-track {
-      flex: 1; height: 6px; background: var(--cream-mid);
-      border-radius: 3px; overflow: hidden;
-    }
-    
-    .avis-bar-fill { height: 100%; background: var(--blue); border-radius: 3px; }
     
     .avis-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -705,7 +671,6 @@
       }
       .nav-burger { display: flex; }
       .nav-socials { display: none; }
-      .avis-summary { flex-direction: column; gap: 1.5rem; }
       .photo-grid { grid-template-columns: 1fr 1fr; }
     }
     
@@ -738,13 +703,12 @@
           <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
         </svg>
       </a>
-      <a href="https://www.instagram.com/boavida.cafe" target="_blank" class="nav-social-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="https://www.instagram.com/boavida.cafe" target="_blank" class="nav-social-btn icon-only" title="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-          <circle cx="12" cy="12" r="4"></circle>
-          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
         </svg>
-        @boavida.cafe
       </a>
     </div>
 
@@ -771,21 +735,15 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-photo tall" onclick="openLightbox('https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80" alt="Vitrine Boa Vida avec pasteis de nata" loading="lazy" />
-        </div>
-        <div class="hero-photo" onclick="openLightbox('https://images.unsplash.com/photo-1557142046-c704a3adf364?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1557142046-c704a3adf364?auto=format&fit=crop&w=800&q=80" alt="Galão et pasteis de nata sur table" loading="lazy" />
-        </div>
-        <div class="hero-photo" onclick="openLightbox('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Salon avec niche azulejos portuguais" loading="lazy" />
+        <div class="hero-photo" onclick="openLightbox('https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=1200&q=80')">
+          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=1200&q=80" alt="Spécialités portugaises Boa Vida" loading="lazy" />
         </div>
       </div>
     </section>
 
     <div class="azulejo-divider"></div>
 
-    <section class="features" style="padding: 4rem 5rem;">
+    <section class="features">
       <div class="feature">
         <div class="feature-emoji">🇵🇹</div>
         <h3>Authenticité portugaise</h3>
@@ -828,7 +786,7 @@
       </div>
 
       <div class="menu-category active" id="cat-boissons">
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--blue); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Fraîches —</h3>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Fraîches —</h3>
         <div class="menu-grid" style="margin-bottom:2.5rem;">
           <div class="menu-card">
             <div class="menu-card-top"><span class="menu-card-name">Coca Cola 33cl</span><span class="menu-card-price">3,50 €</span></div>
@@ -855,7 +813,7 @@
             <p class="menu-card-desc">Pomme · Mangue/Orange/Carotte · Ananas/Coco · Multifruits · Orange</p>
           </div>
         </div>
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--blue); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Chaudes —</h3>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Chaudes —</h3>
         <div class="menu-grid">
           <div class="menu-card">
             <div class="menu-card-top"><span class="menu-card-name">Expresso</span><span class="menu-card-price">2,00 €</span></div>
@@ -885,7 +843,7 @@
       </div>
 
       <div class="menu-category" id="cat-patisseries">
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--blue); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Sucrés —</h3>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Sucrés —</h3>
         <div class="menu-grid">
           <div class="menu-card">
             <div class="menu-card-top"><span class="menu-card-name">Pastel de Nata</span><span class="menu-card-price">2,50 €</span></div>
@@ -935,7 +893,7 @@
       </div>
 
       <div class="menu-category" id="cat-sales">
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--blue); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Salés —</h3>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Salés —</h3>
         <div class="menu-grid">
           <div class="menu-card">
             <div class="menu-card-top"><span class="menu-card-name">Tosta Mista</span><span class="menu-card-price">4,90 €</span></div>
@@ -963,29 +921,29 @@
         <p class="section-sub">Venez découvrir notre salon de thé cosy au cœur du Perreux — et laissez les photos vous donner faim.</p>
       </div>
       <div class="photo-grid">
-        <div class="photo-grid-item tall" onclick="openLightbox('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80" alt="Façade Boa Vida" loading="lazy"/>
+        <div class="photo-grid-item tall" onclick="openLightbox('https://images.unsplash.com/photo-1514432324607-a125290bad81?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1514432324607-a125290bad81?auto=format&fit=crop&w=800&q=80" alt="Expresso portugais" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80" alt="Vitrine et comptoir" loading="lazy"/>
-        </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1557142046-c704a3adf364?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1557142046-c704a3adf364?auto=format&fit=crop&w=800&q=80" alt="Galão et pasteis de nata" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80" alt="Pasteis de nata" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80" alt="Pasteis amande et chocolat" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80" alt="Pâtisserie portugaise" loading="lazy"/>
+        </div>
+        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="Tapas et petiscos" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Niche azulejos" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Azulejos" loading="lazy"/>
         </div>
-        <div class="photo-grid-item wide" onclick="openLightbox('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Salle du salon vue depuis la rue" loading="lazy"/>
+        <div class="photo-grid-item wide" onclick="openLightbox('https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80" alt="Ambiance Lisbonne" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80" alt="Tosta chèvre miel" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80" alt="Tosta et salé" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Petit-déjeuner avec pasteis" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80" alt="Préparation café" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -1005,7 +963,7 @@
           <p>L'épicerie fine complète l'expérience : huiles d'olive, vins, conserves artisanales importées directement — un bout du Portugal à emporter chez vous.</p>
         </div>
         <div class="histoire-photo">
-          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80" alt="Comptoir Boa Vida" loading="lazy"/>
+          <img src="photo1.jpg" alt="Comptoir Boa Vida" loading="lazy"/>
         </div>
       </div>
       <div class="histoire-values">
@@ -1033,23 +991,6 @@
       <div class="section-header">
         <p class="section-eyebrow">Ce que disent nos clients</p>
         <h2 class="section-title">Ils nous font <em>confiance</em></h2>
-      </div>
-      <div class="avis-summary">
-        <div class="avis-big-score">
-          <div class="avis-big-num">4,9</div>
-          <div class="avis-big-stars">★★★★★</div>
-          <div class="avis-big-count">86 avis Google</div>
-        </div>
-        <div class="avis-bars">
-          <div class="avis-bar-row"><span class="avis-bar-label">5</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:92%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">4</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:6%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">3</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:2%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">2</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:0%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">1</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:0%"></div></div></div>
-        </div>
-        <div style="font-size:0.85rem;color:var(--ink-muted);max-width:200px;line-height:1.65;">
-          ✅ Avis collectés sur <strong>Google Maps</strong> — vérifiés par Google
-        </div>
       </div>
       <div class="avis-grid">
         <div class="avis-card">
@@ -1177,28 +1118,31 @@
       <div class="contact-form">
         <h2>Nous écrire</h2>
         <p>Pour une commande spéciale, un événement ou juste dire bonjour.</p>
-        <div class="form-group">
-          <label>Votre nom</label>
-          <input type="text" placeholder="Marie Dupont" />
-        </div>
-        <div class="form-group">
-          <label>Votre e-mail</label>
-          <input type="email" placeholder="marie@email.com" />
-        </div>
-        <div class="form-group">
-          <label>Sujet</label>
-          <select>
-            <option>Commande spéciale / événement</option>
-            <option>Question sur nos produits</option>
-            <option>Partenariat / presse</option>
-            <option>Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Bonjour, je souhaitais…"></textarea>
-        </div>
-        <button class="form-submit" onclick="showToast('✉️ Message envoyé ! On vous répond vite.')">Envoyer le message</button>
+        <form action="https://api.web3forms.com/submit" method="POST" onsubmit="showToast('✉️ Message envoyé ! On vous répond vite.'); setTimeout(() => { event.target.reset(); }, 500);">
+          <input type="hidden" name="access_key" value="d30faa67-b86f-4cb9-890b-c2167e1726ae">
+          <div class="form-group">
+            <label>Votre nom</label>
+            <input type="text" name="name" required placeholder="Marie Dupont" />
+          </div>
+          <div class="form-group">
+            <label>Votre e-mail</label>
+            <input type="email" name="email" required placeholder="marie@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Sujet</label>
+            <select name="subject">
+              <option>Commande spéciale / événement</option>
+              <option>Question sur nos produits</option>
+              <option>Partenariat / presse</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" required placeholder="Bonjour, je souhaitais…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Envoyer le message</button>
+        </form>
       </div>
     </div>
   </div>
