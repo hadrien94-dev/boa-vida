@@ -13,8 +13,8 @@
       --cream-mid: #EDE8DF;
       --terra:     #C8604A;
       --terra-dark:#A04535;
-      --sage:      #5C7A5E;
-      --sage-light:#8AAB8C;
+      --marine:    #1B3B5C;
+      --marine-light:#3A638E;
       --ink:       #1C1A18;
       --ink-muted: #5A554E;
       --white:     #FFFFFF;
@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(250,247,242,0.95);
@@ -41,7 +40,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem; font-weight: 700;
       color: var(--terra); letter-spacing: -0.01em;
-      text-decoration: none;
+      text-decoration: none; cursor: pointer;
     }
     .nav-logo span { color: var(--ink); font-weight: 400; font-style: italic; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -52,22 +51,12 @@
       cursor: pointer;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--terra); }
-    .nav-cta {
-      background: var(--terra); color: var(--white);
-      border: none; border-radius: 4px;
-      padding: 0.5rem 1.2rem; font-size: 0.85rem; font-weight: 600;
-      cursor: pointer; transition: background 0.2s; text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .nav-cta:hover { background: var(--terra-dark); }
     .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .nav-burger span { width: 24px; height: 2px; background: var(--ink); display: block; transition: all 0.3s; }
 
-    /* ─── PAGES ─── */
     .page { display: none; min-height: 100vh; padding-top: 64px; }
     .page.active { display: block; }
 
-    /* ─── HERO ─── */
     #page-accueil { background: var(--cream); }
     .hero {
       min-height: calc(100vh - 64px);
@@ -102,54 +91,28 @@
       cursor: pointer; transition: background 0.2s; letter-spacing: 0.03em;
     }
     .btn-primary:hover { background: var(--terra-dark); }
-    .btn-secondary {
-      background: transparent; color: var(--ink);
-      padding: 0.85rem 2rem; border-radius: 4px;
-      font-size: 0.9rem; font-weight: 500;
-      border: 1.5px solid var(--cream-mid); cursor: pointer;
-      transition: border-color 0.2s;
-    }
-    .btn-secondary:hover { border-color: var(--ink-muted); }
+    
     .hero-visual {
-      background: var(--sage);
-      min-height: calc(100vh - 64px);
+      height: calc(100vh - 64px);
       position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
     }
-    .azulejo-grid {
-      position: absolute; inset: 0;
-      display: grid; grid-template-columns: repeat(6, 1fr);
-      opacity: 0.15;
+    .hero-img {
+      width: 100%; height: 100%; object-fit: cover;
     }
-    .azulejo-tile {
-      aspect-ratio: 1;
-      border: 1px solid rgba(255,255,255,0.3);
+    
+    .azulejo-divider {
+      height: 40px;
+      width: 100%;
+      background-color: var(--white);
+      background-image: 
+        radial-gradient(var(--marine) 15%, transparent 16%),
+        radial-gradient(var(--marine) 15%, transparent 16%);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      border-top: 2px solid var(--marine-light);
+      border-bottom: 2px solid var(--marine-light);
     }
-    .azulejo-tile svg { width: 100%; height: 100%; }
-    .hero-badge {
-      position: relative; z-index: 2;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 12px; padding: 2.5rem;
-      text-align: center; backdrop-filter: blur(4px);
-      max-width: 280px;
-    }
-    .hero-badge-icon { font-size: 3.5rem; margin-bottom: 1rem; }
-    .hero-badge h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-    .hero-badge p { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.5; }
-    .hero-rating {
-      margin-top: 1.2rem;
-      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
-    }
-    .stars { color: #FFD166; letter-spacing: 2px; }
-    .rating-num { color: var(--white); font-weight: 700; font-size: 1.1rem; }
-    .rating-count { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
 
-    /* ─── FEATURES ─── */
     .features {
       background: var(--cream-mid);
       padding: 5rem 5rem;
@@ -162,7 +125,6 @@
     .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
     .feature p { font-size: 0.9rem; line-height: 1.7; color: var(--ink-muted); }
 
-    /* ─── SECTION TITLES ─── */
     .section-header { text-align: center; margin-bottom: 3.5rem; }
     .section-eyebrow {
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
@@ -179,12 +141,11 @@
       max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6;
     }
 
-    /* ─── MENU PAGE ─── */
     #page-menu { background: var(--cream); }
     .menu-wrap { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
     .menu-tabs {
       display: flex; gap: 0.5rem; margin-bottom: 3rem;
-      flex-wrap: wrap;
+      flex-wrap: wrap; justify-content: center;
     }
     .tab-btn {
       padding: 0.55rem 1.3rem; border-radius: 30px;
@@ -206,7 +167,6 @@
       background: var(--white); border-radius: 10px;
       padding: 1.5rem; border: 1px solid var(--cream-mid);
       transition: box-shadow 0.2s, transform 0.2s;
-      cursor: pointer;
     }
     .menu-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-2px); }
     .menu-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
@@ -217,102 +177,16 @@
     .menu-card-price {
       font-weight: 700; color: var(--terra); font-size: 1rem; white-space: nowrap;
     }
-    .menu-card-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.5; margin-bottom: 1rem; }
-    .menu-card-tag {
-      display: inline-block; font-size: 0.72rem; font-weight: 600;
-      padding: 0.2rem 0.6rem; border-radius: 3px;
-      background: var(--cream-mid); color: var(--sage);
-      letter-spacing: 0.05em; text-transform: uppercase;
+    .menu-card-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.5; margin-bottom: 0; }
+    
+    .menu-photo-container {
+      margin-bottom: 3rem; text-align: center;
     }
-    .add-to-cart {
-      float: right; background: var(--terra); color: var(--white);
-      border: none; border-radius: 4px; padding: 0.4rem 0.9rem;
-      font-size: 0.8rem; font-weight: 600; cursor: pointer;
-      transition: background 0.2s;
-    }
-    .add-to-cart:hover { background: var(--terra-dark); }
-
-    /* ─── COMMANDER PAGE ─── */
-    #page-commander { background: var(--cream); }
-    .commander-wrap {
-      max-width: 960px; margin: 0 auto; padding: 5rem 2rem;
-      display: grid; grid-template-columns: 1fr 380px; gap: 3rem;
-      align-items: start;
-    }
-    .order-products h2 {
-      font-family: 'Playfair Display', serif; font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-    }
-    .order-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
-    .order-item {
-      background: var(--white); border-radius: 8px;
-      border: 1px solid var(--cream-mid);
-      padding: 1rem 1.2rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .order-item-emoji { font-size: 2rem; }
-    .order-item-info { flex: 1; }
-    .order-item-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
-    .order-item-sub { font-size: 0.8rem; color: var(--ink-muted); }
-    .order-item-price { font-weight: 700; color: var(--terra); }
-    .qty-control { display: flex; align-items: center; gap: 0.5rem; }
-    .qty-btn {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 1.5px solid var(--cream-mid); background: var(--white);
-      font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s; color: var(--ink);
-    }
-    .qty-btn:hover { background: var(--terra); color: var(--white); border-color: var(--terra); }
-    .qty-num { font-weight: 600; min-width: 20px; text-align: center; }
-
-    /* Cart panel */
-    .cart-panel {
-      background: var(--white); border-radius: 12px;
-      border: 1px solid var(--cream-mid);
-      padding: 1.8rem; position: sticky; top: 80px;
-    }
-    .cart-panel h3 {
-      font-family: 'Playfair Display', serif; font-size: 1.3rem;
-      margin-bottom: 1.5rem; padding-bottom: 1rem;
-      border-bottom: 1px solid var(--cream-mid);
-    }
-    .cart-items { min-height: 80px; margin-bottom: 1.5rem; }
-    .cart-empty { color: var(--ink-muted); font-size: 0.9rem; font-style: italic; }
-    .cart-line {
-      display: flex; justify-content: space-between;
-      font-size: 0.9rem; margin-bottom: 0.6rem; color: var(--ink);
-    }
-    .cart-line.total {
-      font-weight: 700; font-size: 1rem; padding-top: 0.8rem;
-      border-top: 1px solid var(--cream-mid); margin-top: 0.8rem; color: var(--terra);
-    }
-    .cart-info {
-      background: var(--cream); border-radius: 6px; padding: 0.8rem 1rem;
-      margin-bottom: 1.2rem;
-    }
-    .cart-info label { font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 0.4rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .cart-info input, .cart-info select {
-      width: 100%; padding: 0.5rem 0.7rem; border-radius: 5px;
-      border: 1px solid var(--cream-mid); font-size: 0.9rem;
-      background: var(--white); color: var(--ink); margin-bottom: 0.6rem;
-      font-family: 'Inter', sans-serif;
-    }
-    .cart-info input:last-child, .cart-info select:last-child { margin-bottom: 0; }
-    .checkout-btn {
-      width: 100%; background: var(--terra); color: var(--white);
-      border: none; border-radius: 6px; padding: 1rem;
-      font-size: 0.95rem; font-weight: 700; cursor: pointer;
-      transition: background 0.2s; letter-spacing: 0.03em;
-    }
-    .checkout-btn:hover { background: var(--terra-dark); }
-    .checkout-btn:disabled { background: var(--cream-mid); color: var(--ink-muted); cursor: not-allowed; }
-    .stripe-note {
-      text-align: center; margin-top: 0.8rem;
-      font-size: 0.75rem; color: var(--ink-muted);
-      display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+    .menu-photo-container img {
+      max-width: 100%; height: auto; border-radius: 12px;
+      max-height: 400px; object-fit: cover;
     }
 
-    /* ─── HISTOIRE PAGE ─── */
     #page-histoire { background: var(--cream); }
     .histoire-wrap { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; }
     .histoire-hero {
@@ -329,15 +203,10 @@
       margin-bottom: 1rem;
     }
     .histoire-visual {
-      background: var(--sage);
-      border-radius: 12px; padding: 3rem;
-      text-align: center; position: relative; overflow: hidden;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-    .histoire-visual-emoji { font-size: 5rem; }
-    .histoire-visual h4 {
-      font-family: 'Playfair Display', serif;
-      color: var(--white); font-size: 1.3rem; margin-top: 1rem; font-style: italic;
-    }
+    .histoire-visual img { width: 100%; height: 100%; display: block; object-fit: cover; }
     .histoire-values {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
     }
@@ -352,7 +221,6 @@
     }
     .value-card p { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; }
 
-    /* ─── AVIS PAGE ─── */
     #page-avis { background: var(--cream); }
     .avis-wrap { max-width: 1000px; margin: 0 auto; padding: 5rem 2rem; }
     .avis-summary {
@@ -369,16 +237,6 @@
     }
     .avis-big-stars { font-size: 1.3rem; color: #FFD166; margin: 0.3rem 0; }
     .avis-big-count { font-size: 0.85rem; color: var(--ink-muted); }
-    .avis-bars { flex: 1; }
-    .avis-bar-row {
-      display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;
-    }
-    .avis-bar-label { font-size: 0.8rem; color: var(--ink-muted); min-width: 12px; }
-    .avis-bar-track {
-      flex: 1; height: 6px; background: var(--cream);
-      border-radius: 3px; overflow: hidden;
-    }
-    .avis-bar-fill { height: 100%; background: var(--terra); border-radius: 3px; }
     .avis-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
@@ -390,15 +248,13 @@
     .avis-card-top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
     .avis-avatar {
       width: 40px; height: 40px; border-radius: 50%;
-      background: var(--sage); display: flex; align-items: center; justify-content: center;
+      background: var(--marine); display: flex; align-items: center; justify-content: center;
       font-weight: 700; color: var(--white); font-size: 0.9rem;
     }
     .avis-author { font-weight: 600; font-size: 0.9rem; }
-    .avis-date { font-size: 0.75rem; color: var(--ink-muted); }
     .avis-stars { color: #FFD166; font-size: 0.9rem; }
     .avis-text { font-size: 0.88rem; line-height: 1.65; color: var(--ink-muted); }
 
-    /* ─── CONTACT PAGE ─── */
     #page-contact { background: var(--cream); }
     .contact-wrap {
       max-width: 900px; margin: 0 auto; padding: 5rem 2rem;
@@ -414,77 +270,36 @@
       text-transform: uppercase; color: var(--terra); margin-bottom: 0.4rem;
     }
     .contact-block p { font-size: 0.95rem; line-height: 1.6; color: var(--ink); }
-    .contact-block a { color: var(--sage); text-decoration: none; }
+    .contact-block a { color: var(--marine); text-decoration: none; font-weight: 500; }
     .contact-block a:hover { text-decoration: underline; }
+    
+    .tags-container {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;
+    }
+    .info-tag {
+      font-size: 0.75rem; background: var(--cream-mid); color: var(--ink);
+      padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 500;
+    }
+
     .horaires-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 1rem;
       font-size: 0.88rem;
     }
     .horaires-day { color: var(--ink-muted); }
     .horaires-time { font-weight: 500; }
-    .contact-form h2 {
-      font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.5rem;
+    
+    .contact-photo {
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
-    .contact-form > p { font-size: 0.95rem; color: var(--ink-muted); margin-bottom: 2rem; }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label {
-      display: block; font-size: 0.8rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.05em;
-      color: var(--ink-muted); margin-bottom: 0.4rem;
-    }
-    .form-group input, .form-group textarea, .form-group select {
-      width: 100%; padding: 0.7rem 0.9rem;
-      border: 1.5px solid var(--cream-mid); border-radius: 6px;
-      font-family: 'Inter', sans-serif; font-size: 0.9rem;
-      background: var(--white); color: var(--ink);
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none; border-color: var(--terra);
-    }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-submit {
-      width: 100%; background: var(--terra); color: var(--white);
-      border: none; border-radius: 6px; padding: 0.9rem;
-      font-size: 0.9rem; font-weight: 700; cursor: pointer;
-      transition: background 0.2s; letter-spacing: 0.03em;
-    }
-    .form-submit:hover { background: var(--terra-dark); }
-
-    /* ─── LEGALES PAGE ─── */
-    #page-legales { background: var(--cream); }
-    .legales-wrap { max-width: 780px; margin: 0 auto; padding: 5rem 2rem; }
-    .legales-wrap h1 {
-      font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 0.5rem;
-    }
-    .legales-tabs { display: flex; gap: 0.5rem; margin: 2rem 0 3rem; }
-    .legales-tab {
-      padding: 0.5rem 1.2rem; border-radius: 30px; cursor: pointer;
-      font-size: 0.85rem; font-weight: 500; border: 1.5px solid var(--cream-mid);
-      background: var(--white); color: var(--ink-muted); transition: all 0.2s;
-    }
-    .legales-tab.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
-    .legales-section { display: none; }
-    .legales-section.active { display: block; }
-    .legales-section h2 {
-      font-family: 'Playfair Display', serif; font-size: 1.3rem; margin: 2rem 0 0.8rem;
-      color: var(--ink);
-    }
-    .legales-section p, .legales-section li {
-      font-size: 0.9rem; line-height: 1.8; color: var(--ink-muted); margin-bottom: 0.8rem;
-    }
-    .legales-section ul { padding-left: 1.5rem; }
-    .placeholder-notice {
-      background: #FFF8E7; border: 1.5px dashed #E6B84A;
-      border-radius: 6px; padding: 1rem 1.2rem; margin-bottom: 1.5rem;
-      font-size: 0.85rem; color: #7A5A00;
+    .contact-photo img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
 
-    /* ─── FOOTER ─── */
     footer {
       background: var(--ink); color: rgba(255,255,255,0.6);
       padding: 3rem 5rem;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem;
     }
     footer h4 {
       font-family: 'Playfair Display', serif;
@@ -494,7 +309,7 @@
       font-size: 0.85rem; line-height: 1.8; color: rgba(255,255,255,0.55);
       text-decoration: none; display: block;
     }
-    footer a:hover { color: var(--terra); }
+    footer a:hover { color: var(--terra); cursor: pointer; }
     .footer-logo {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem; color: var(--white);
@@ -506,29 +321,15 @@
       padding: 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.3);
     }
 
-    /* Notification toast */
-    .toast {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-      background: var(--sage); color: var(--white);
-      padding: 0.8rem 1.5rem; border-radius: 6px;
-      font-size: 0.9rem; font-weight: 500;
-      transform: translateY(100px); opacity: 0;
-      transition: all 0.3s; pointer-events: none;
-    }
-    .toast.show { transform: translateY(0); opacity: 1; }
-
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
+      .hero-visual { height: 300px; }
       .hero-text { padding: 3rem 1.5rem; }
       .features { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
-      .commander-wrap { grid-template-columns: 1fr; }
-      .cart-panel { position: static; }
       .histoire-hero { grid-template-columns: 1fr; }
       .histoire-values { grid-template-columns: 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr 1fr; padding: 2rem 1.5rem; }
+      footer { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .nav-links.open {
@@ -539,31 +340,26 @@
         gap: 1rem;
       }
       .nav-burger { display: flex; }
-      .nav-cta { display: none; }
       .avis-summary { flex-direction: column; gap: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a class="nav-logo" onclick="showPage('accueil')">Boa <span>Vida</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a onclick="showPage('accueil')" data-page="accueil">Accueil</a></li>
       <li><a onclick="showPage('menu')" data-page="menu">Carte</a></li>
-      <li><a onclick="showPage('commander')" data-page="commander">Commander</a></li>
       <li><a onclick="showPage('histoire')" data-page="histoire">Notre histoire</a></li>
       <li><a onclick="showPage('avis')" data-page="avis">Avis</a></li>
       <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
     </ul>
-    <button class="nav-cta" onclick="showPage('commander')">Commander →</button>
     <div class="nav-burger" id="burger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
   </nav>
 
-  <!-- ══ PAGE ACCUEIL ══ -->
   <div class="page active" id="page-accueil">
     <section class="hero">
       <div class="hero-text">
@@ -571,24 +367,16 @@
         <h1 class="hero-title">Une parenthèse<br><em>portugaise</em><br>au cœur du Perreux</h1>
         <p class="hero-desc">Pasteis de nata croustillants, pâtisseries artisanales et saveurs authentiques du Portugal. Un lieu cosy où le temps s'arrête.</p>
         <div class="hero-actions">
-          <button class="btn-primary" onclick="showPage('commander')">Commander en Click & Collect</button>
-          <button class="btn-secondary" onclick="showPage('menu')">Voir la carte →</button>
+          <button class="btn-primary" onclick="showPage('menu')">Voir notre carte</button>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="azulejo-grid" id="azulejoGrid"></div>
-        <div class="hero-badge">
-          <div class="hero-badge-icon">🥐</div>
-          <h3>Pasteis de Nata</h3>
-          <p>Frais du jour, artisanaux, comme au Portugal</p>
-          <div class="hero-rating">
-            <span class="stars">★★★★★</span>
-            <span class="rating-num">4,9</span>
-            <span class="rating-count">/ 86 avis</span>
-          </div>
-        </div>
+        <img src="photo1.jpg" alt="Vitrine Boa Vida" class="hero-img">
       </div>
     </section>
+    
+    <div class="azulejo-divider"></div>
+    
     <section class="features">
       <div class="feature">
         <div class="feature-icon">🇵🇹</div>
@@ -608,186 +396,135 @@
     </section>
   </div>
 
-  <!-- ══ PAGE MENU ══ -->
   <div class="page" id="page-menu">
     <div class="menu-wrap">
       <div class="section-header">
         <p class="section-eyebrow">Ce que nous proposons</p>
         <h2 class="section-title">Notre <em>Carte</em></h2>
-        <p class="section-sub">Tout est préparé avec amour, chaque matin. Les quantités sont limitées — on vous conseille de commander en avance.</p>
+        <p class="section-sub">Tout est préparé avec amour, chaque matin. Dégustation sur place ou à emporter.</p>
       </div>
+      
+      <div class="menu-photo-container">
+        <img src="photo2.jpg" alt="Pâtisseries et boissons Boa Vida">
+      </div>
+
       <div class="menu-tabs">
-        <button class="tab-btn active" onclick="showCategory('patisseries')">🥐 Pâtisseries</button>
-        <button class="tab-btn" onclick="showCategory('boissons')">☕ Boissons</button>
-        <button class="tab-btn" onclick="showCategory('epicerie')">🛒 Épicerie fine</button>
-        <button class="tab-btn" onclick="showCategory('formules')">🍽️ Formules</button>
+        <button class="tab-btn active" onclick="showCategory('fraiches')">🧊 Boissons Fraîches</button>
+        <button class="tab-btn" onclick="showCategory('chaudes')">☕ Boissons Chaudes</button>
+        <button class="tab-btn" onclick="showCategory('sucrees')">🥐 Pâtisseries Sucrées</button>
+        <button class="tab-btn" onclick="showCategory('salees')">🥪 Salés</button>
       </div>
 
-      <div class="menu-category active" id="cat-patisseries">
+      <div class="menu-category active" id="cat-fraiches">
         <div class="menu-grid">
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Pastel de Nata</span><span class="menu-card-price">1,80 €</span></div>
-            <p class="menu-card-desc">La star de la maison. Crème aux œufs, pâte feuilletée croustillante, légèrement caramélisée. Servi chaud, saupoudré de cannelle.</p>
-            <span class="menu-card-tag">⭐ Best-seller</span>
-            <button class="add-to-cart" onclick="addToCart('Pastel de Nata', 1.80)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Coca Cola 33cl</span><span class="menu-card-price">3.50 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Boule de Berlin</span><span class="menu-card-price">2,50 €</span></div>
-            <p class="menu-card-desc">Beignet moelleux fourré à la crème pâtissière vanille ou à la confiture de fraise. Généreuse et réconfortante.</p>
-            <span class="menu-card-tag">Artisanal</span>
-            <button class="add-to-cart" onclick="addToCart('Boule de Berlin', 2.50)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Sumol Orange / Ananas 30cl</span><span class="menu-card-price">3.50 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Tarte aux amandes</span><span class="menu-card-price">3,20 €</span></div>
-            <p class="menu-card-desc">Pâte sablée, crème d'amandes fondante, amandes effilées dorées. Un classique revisité avec amour.</p>
-            <span class="menu-card-tag">Artisanal</span>
-            <button class="add-to-cart" onclick="addToCart('Tarte aux amandes', 3.20)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Frize Original / Limao / Groseille</span><span class="menu-card-price">3.00 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Pastel de Feijão</span><span class="menu-card-price">2,20 €</span></div>
-            <p class="menu-card-desc">Petite tartelette portugaise à la crème de haricots blancs sucrés. Rare en France, absolument délicieuse.</p>
-            <span class="menu-card-tag">🇵🇹 Portugal</span>
-            <button class="add-to-cart" onclick="addToCart('Pastel de Feijão', 2.20)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Eau Plate 33 cl</span><span class="menu-card-price">2.00 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Bolo de Mel</span><span class="menu-card-price">2,80 €</span></div>
-            <p class="menu-card-desc">Gâteau traditionnel de Madère au miel de canne, épices et fruits confits. Riche, dense et profondément parfumé.</p>
-            <span class="menu-card-tag">🇵🇹 Portugal</span>
-            <button class="add-to-cart" onclick="addToCart('Bolo de Mel', 2.80)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Super Bock 25cl</span><span class="menu-card-price">3.50 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Plateau 6 Pasteis</span><span class="menu-card-price">9,80 €</span></div>
-            <p class="menu-card-desc">Six pasteis de nata présentés dans une boîte cadeau. Idéal pour partager ou pour offrir.</p>
-            <span class="menu-card-tag">Coffret cadeau</span>
-            <button class="add-to-cart" onclick="addToCart('Plateau 6 Pasteis', 9.80)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Lait Chocolaté Ucal 25cl</span><span class="menu-card-price">3.00 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Jus Compal 20 cl</span><span class="menu-card-price">3.00 €</span></div>
+            <p class="menu-card-desc">Pomme, Mangue, Orange, Carotte, Ananas, Coco, Multifruits</p>
           </div>
         </div>
       </div>
 
-      <div class="menu-category" id="cat-boissons">
+      <div class="menu-category" id="cat-chaudes">
         <div class="menu-grid">
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Café Expresso</span><span class="menu-card-price">1,50 €</span></div>
-            <p class="menu-card-desc">Torréfaction artisanale portugaise, intense et veloutée. La base de tout.</p>
-            <span class="menu-card-tag">Café</span>
-            <button class="add-to-cart" onclick="addToCart('Café Expresso', 1.50)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Expresso</span><span class="menu-card-price">2.00 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Galão</span><span class="menu-card-price">2,80 €</span></div>
-            <p class="menu-card-desc">Le grand café latte portugais — espresso allongé avec beaucoup de lait moussé. Onctueux et doux.</p>
-            <span class="menu-card-tag">🇵🇹 Portugal</span>
-            <button class="add-to-cart" onclick="addToCart('Galão', 2.80)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Café Allongé</span><span class="menu-card-price">3.00 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Thé Azores</span><span class="menu-card-price">3,50 €</span></div>
-            <p class="menu-card-desc">Thé des îles Açores, seule plantation de thé d'Europe. Léger, floral, unique.</p>
-            <span class="menu-card-tag">Thé rare</span>
-            <button class="add-to-cart" onclick="addToCart('Thé Azores', 3.50)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Galao / Latte</span><span class="menu-card-price">3.90 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Limonade Maison</span><span class="menu-card-price">3,80 €</span></div>
-            <p class="menu-card-desc">Citrons de Sicile, menthe fraîche, eau pétillante. Préparée chaque matin.</p>
-            <span class="menu-card-tag">Maison</span>
-            <button class="add-to-cart" onclick="addToCart('Limonade Maison', 3.80)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Capuccino</span><span class="menu-card-price">3.90 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Chocolat Chaud</span><span class="menu-card-price">3.90 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Thé / Infusions</span><span class="menu-card-price">3.90 €</span></div>
+            <p class="menu-card-desc">Menthe, Pomme Canelle, Fruits Rouge, Mélisse, Camomille</p>
+          </div>
+          <div class="menu-card" style="background:var(--cream-mid); border:none;">
+            <p class="menu-card-desc" style="color:var(--ink);">Lait d'avoine sur demande : + 0.50 €<br>Ajout Sirop (Vanille, Caramel) : + 0.20 €</p>
           </div>
         </div>
       </div>
 
-      <div class="menu-category" id="cat-epicerie">
+      <div class="menu-category" id="cat-sucrees">
         <div class="menu-grid">
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Huile d'olive Alentejo</span><span class="menu-card-price">12,00 €</span></div>
-            <p class="menu-card-desc">Huile d'olive vierge extra de la région Alentejo, pressée à froid, fruité vert intense. 500ml.</p>
-            <span class="menu-card-tag">Épicerie</span>
-            <button class="add-to-cart" onclick="addToCart('Huile d\'olive Alentejo', 12.00)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Pastel de Nata</span><span class="menu-card-price">2.50 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Conserves de Sardines</span><span class="menu-card-price">5,50 €</span></div>
-            <p class="menu-card-desc">Sardines de Matosinhos à l'huile d'olive, assaisonnées aux herbes. Un trésor portugais.</p>
-            <span class="menu-card-tag">Épicerie</span>
-            <button class="add-to-cart" onclick="addToCart('Conserves de Sardines', 5.50)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Pastel de Nata Choco</span><span class="menu-card-price">2.60 €</span></div>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Vinho Verde</span><span class="menu-card-price">9,90 €</span></div>
-            <p class="menu-card-desc">Vin blanc légèrement pétillant du nord du Portugal. Frais, citronné, parfait pour l'apéritif. 75cl.</p>
-            <span class="menu-card-tag">Vins</span>
-            <button class="add-to-cart" onclick="addToCart('Vinho Verde', 9.90)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Pastel de Nata Amande</span><span class="menu-card-price">2.60 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Pastel de Coco</span><span class="menu-card-price">2.60 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Pastel de Feijao</span><span class="menu-card-price">2.60 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Bola de Berlim</span><span class="menu-card-price">3.50 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Guardanapo</span><span class="menu-card-price">3.50 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Corneto</span><span class="menu-card-price">3.50 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Bolo de Arroz</span><span class="menu-card-price">2.50 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Tartine / Torrada Beurre</span><span class="menu-card-price">2.50 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Tosta Nutella</span><span class="menu-card-price">2.60 €</span></div>
           </div>
         </div>
       </div>
 
-      <div class="menu-category" id="cat-formules">
+      <div class="menu-category" id="cat-salees">
         <div class="menu-grid">
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Formule Petit-Déj</span><span class="menu-card-price">7,50 €</span></div>
-            <p class="menu-card-desc">2 pasteis de nata + boisson chaude (café, thé ou chocolat). Le début de journée parfait.</p>
-            <span class="menu-card-tag">💫 Formule</span>
-            <button class="add-to-cart" onclick="addToCart('Formule Petit-Déj', 7.50)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Tosta Mista</span><span class="menu-card-price">4.90 €</span></div>
+            <p class="menu-card-desc">Fromage & Jambon</p>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Formule Goûter</span><span class="menu-card-price">8,90 €</span></div>
-            <p class="menu-card-desc">2 pâtisseries au choix + boisson chaude ou froide. Idéal pour une pause sucrée.</p>
-            <span class="menu-card-tag">💫 Formule</span>
-            <button class="add-to-cart" onclick="addToCart('Formule Goûter', 8.90)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Tosta Chèvre / Miel</span><span class="menu-card-price">5.90 €</span></div>
+            <p class="menu-card-desc">Chèvre, miel, tomate séchée, mâche</p>
           </div>
           <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Box Portugal</span><span class="menu-card-price">22,00 €</span></div>
-            <p class="menu-card-desc">6 pasteis + conserve sardines + huile d'olive + thé Açores. La box cadeau parfaite pour offrir.</p>
-            <span class="menu-card-tag">🎁 Cadeau</span>
-            <button class="add-to-cart" onclick="addToCart('Box Portugal', 22.00)">+ Ajouter</button>
+            <div class="menu-card-top"><span class="menu-card-name">Pao Com Chorizo</span><span class="menu-card-price">3.90 €</span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ PAGE COMMANDER ══ -->
-  <div class="page" id="page-commander">
-    <div class="commander-wrap">
-      <div class="order-products">
-        <div class="section-header" style="text-align:left; margin-bottom:2rem;">
-          <p class="section-eyebrow">Vente à emporter</p>
-          <h2 class="section-title">Click &amp; <em>Collect</em></h2>
-          <p class="section-sub" style="margin:0.5rem 0 0; text-align:left;">Commandez en ligne, récupérez au salon. Prêt en 20 minutes.</p>
-        </div>
-        <div class="order-list" id="orderList">
-          <!-- items -->
-        </div>
-        <p style="font-size:0.8rem;color:var(--ink-muted);margin-top:1rem;">
-          📍 Retrait uniquement au <strong>68 ter Av. Ledru Rollin, Le Perreux-sur-Marne</strong>
-        </p>
-      </div>
-
-      <div class="cart-panel">
-        <h3>🛒 Mon panier</h3>
-        <div class="cart-items" id="cartDisplay">
-          <p class="cart-empty">Votre panier est vide.<br>Ajoutez des produits depuis la carte.</p>
-        </div>
-        <div id="cartTotals" style="display:none;">
-          <div class="cart-line total"><span>Total</span><span id="cartTotal">0,00 €</span></div>
-        </div>
-        <div class="cart-info" style="margin-top:1rem;">
-          <label>Votre prénom</label>
-          <input type="text" id="clientName" placeholder="Ex : Marie" />
-          <label>Heure de retrait souhaitée</label>
-          <select id="pickupTime">
-            <option value="">-- Choisir --</option>
-            <option>09h00</option><option>09h30</option><option>10h00</option>
-            <option>10h30</option><option>11h00</option><option>11h30</option>
-            <option>14h00</option><option>14h30</option><option>15h00</option>
-            <option>15h30</option><option>16h00</option><option>16h30</option>
-            <option>17h00</option><option>17h30</option><option>18h00</option>
-          </select>
-        </div>
-        <button class="checkout-btn" id="checkoutBtn" onclick="handleCheckout()" disabled>
-          Valider la commande
-        </button>
-        <p class="stripe-note">🔒 Paiement sécurisé · Stripe</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ PAGE HISTOIRE ══ -->
   <div class="page" id="page-histoire">
     <div class="histoire-wrap">
       <div class="section-header">
@@ -798,14 +535,14 @@
         <div class="histoire-text">
           <h2>Un coin de <em>Lisbonne</em> au Perreux</h2>
           <p>Boa Vida est née d'une passion simple : partager la douceur de vivre à la portugaise. Nos propriétaires, amoureux du Portugal, ont voulu recréer ici l'atmosphère des petits cafés lisboètes où le temps passe plus lentement.</p>
-          <p>Chaque matin, nos pasteis de nata sont préparés selon la recette traditionnelle — pâte feuilletée maison, crème aux œufs, cuisson à haute température pour obtenir ce caramel légèrement brûlé qui fait toute la différence.</p>
+          <p>Chaque matin, nos pasteis de nata sont préparés selon la recette traditionnelle. La cuisson à haute température permet d'obtenir ce caramel légèrement brûlé qui fait toute la différence.</p>
           <p>Boa Vida, c'est aussi une épicerie fine où vous pouvez repartir avec les saveurs du Portugal : huiles d'olive, conserves artisanales, vins, et bien d'autres trésors importés directement.</p>
         </div>
         <div class="histoire-visual">
-          <div class="histoire-visual-emoji">🏺</div>
-          <h4>"A vida é boa aqui"<br><small style="font-size:0.8rem;opacity:0.8;">La vie est belle ici</small></h4>
+          <img src="photo3.jpg" alt="Intérieur Boa Vida">
         </div>
       </div>
+      <div class="azulejo-divider" style="margin-bottom: 4rem; opacity:0.5; border:none;"></div>
       <div class="histoire-values">
         <div class="value-card">
           <div class="value-card-icon">🌿</div>
@@ -815,18 +552,17 @@
         <div class="value-card">
           <div class="value-card-icon">🤝</div>
           <h4>Chaleureux</h4>
-          <p>On apprend vite votre prénom ici. L'accueil est notre signature, autant que les pasteis.</p>
+          <p>L'accueil est notre signature, autant que nos pâtisseries. Un vrai moment de convivialité.</p>
         </div>
         <div class="value-card">
           <div class="value-card-icon">🇵🇹</div>
           <h4>Authentique</h4>
-          <p>Nos recettes n'ont pas voyagé seules. Elles viennent des familles, des marchés, des boulangeries de Lisbonne.</p>
+          <p>Nos recettes n'ont pas voyagé seules. Elles viennent des familles, des marchés et des boulangeries de Lisbonne.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ PAGE AVIS ══ -->
   <div class="page" id="page-avis">
     <div class="avis-wrap">
       <div class="section-header">
@@ -839,76 +575,60 @@
           <div class="avis-big-stars">★★★★★</div>
           <div class="avis-big-count">86 avis Google</div>
         </div>
-        <div class="avis-bars">
-          <div class="avis-bar-row"><span class="avis-bar-label">5</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:92%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">4</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:6%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">3</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:2%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">2</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:0%"></div></div></div>
-          <div class="avis-bar-row"><span class="avis-bar-label">1</span><div class="avis-bar-track"><div class="avis-bar-fill" style="width:0%"></div></div></div>
-        </div>
-        <div style="font-size:0.88rem;color:var(--ink-muted);max-width:220px;line-height:1.6;">
-          ✅ Avis collectés sur <strong>Google Maps</strong> — vérifiés par Google
+        <div style="font-size:0.88rem;color:var(--ink-muted);max-width:300px;line-height:1.6;">
+          ✅ Avis collectés sur <strong>Google Maps</strong> — vérifiés par Google. Merci pour votre fidélité !
         </div>
       </div>
       <div class="avis-grid">
         <div class="avis-card">
           <div class="avis-card-top">
-            <div class="avis-avatar">LL</div>
-            <div><div class="avis-author">Laëtitia L.</div><div class="avis-date">Décembre 2025 · Local Guide</div></div>
+            <div class="avis-avatar" style="background:#C8604A">ST</div>
+            <div><div class="avis-author">Silvia Turatello</div></div>
           </div>
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-text" style="margin-top:0.5rem;">Une super découverte portugaise au Perreux ! Boa Vida est un petit café cosy et chaleureux. Les pasteis de nata sont aussi bons qu'au pays ! Croustillants, chauds, artisanaux… un délice.</p>
+          <p class="avis-text" style="margin-top:0.5rem;">Super produits, accueil chaleureux et child friendly. Je recommande à 100%!</p>
         </div>
         <div class="avis-card">
           <div class="avis-card-top">
-            <div class="avis-avatar" style="background:var(--terra)">FT</div>
-            <div><div class="avis-author">Fanny T.</div><div class="avis-date">Novembre 2025 · Local Guide</div></div>
+            <div class="avis-avatar" style="background:#1B3B5C">SA</div>
+            <div><div class="avis-author">Sahar Abdelkader</div></div>
           </div>
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-text" style="margin-top:0.5rem;">Super découverte dans le secteur ! Les pastéis de nata étaient tout simplement un régal. Comme au Portugal, les saveurs étaient au rendez-vous. Je reviendrai !</p>
+          <p class="avis-text" style="margin-top:0.5rem;">Endroit plein de charme, service au top, on manquait d’un endroit pareil à le Perreux! Bonne continuation</p>
         </div>
         <div class="avis-card">
           <div class="avis-card-top">
-            <div class="avis-avatar" style="background:#7A5C9E">SP</div>
-            <div><div class="avis-author">Sophie P.</div><div class="avis-date">Décembre 2025 · Local Guide</div></div>
+            <div class="avis-avatar" style="background:#3A638E">CP</div>
+            <div><div class="avis-author">Charlotte Pimouss</div></div>
           </div>
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-text" style="margin-top:0.5rem;">Une vraie pépite portugaise ! Les pasteis sont frais et délicieux. L'ambiance est cosy et les propriétaires sont d'une gentillesse remarquable, toujours aux petits soins.</p>
+          <p class="avis-text" style="margin-top:0.5rem;">Un vrai petit coin du Portugal ! Produits 100% portugais, tout est délicieux et on peut déguster sur place. L’accueil est super chaleureux, l’ambiance est top et la décoration est magnifique. On s’y sent comme à la maison. Je recommande à 200% !</p>
         </div>
         <div class="avis-card">
           <div class="avis-card-top">
-            <div class="avis-avatar" style="background:#D4820A">MA</div>
-            <div><div class="avis-author">Marc A.</div><div class="avis-date">Octobre 2025</div></div>
+            <div class="avis-avatar" style="background:#A04535">DD</div>
+            <div><div class="avis-author">Diem Dodart</div></div>
           </div>
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-text" style="margin-top:0.5rem;">J'ai ramené une boîte de 12 pasteis pour le bureau… il n'en restait plus en 5 minutes. Tout le monde m'a demandé l'adresse. Merci Boa Vida !</p>
+          <p class="avis-text" style="margin-top:0.5rem;">On est accueillis avec un grand sourire qui donne tout de suite envie de rester. Le lieu est sympa, les pâtisseries sont délicieuses, et le matcha aussi. C’est une adresse où on se sent bien. Je recommande!</p>
         </div>
         <div class="avis-card">
           <div class="avis-card-top">
-            <div class="avis-avatar" style="background:#2E7D7C">CL</div>
-            <div><div class="avis-author">Clara L.</div><div class="avis-date">Septembre 2025</div></div>
+            <div class="avis-avatar" style="background:#5A554E">AP</div>
+            <div><div class="avis-author">Atoutpsy Ps</div></div>
           </div>
           <div class="avis-stars">★★★★★</div>
-          <p class="avis-text" style="margin-top:0.5rem;">L'épicerie fine est une vraie mine d'or. J'y ai trouvé de l'huile d'olive et des sardines que je ne trouve nulle part ailleurs en région parisienne.</p>
-        </div>
-        <div class="avis-card">
-          <div class="avis-card-top">
-            <div class="avis-avatar" style="background:#8AAB8C">JR</div>
-            <div><div class="avis-author">Jean-Paul R.</div><div class="avis-date">Août 2025</div></div>
-          </div>
-          <div class="avis-stars">★★★★★</div>
-          <p class="avis-text" style="margin-top:0.5rem;">Cadre chaleureux, service souriant, pasteis parfaits. C'est devenu mon rituel du samedi matin. Un endroit qui fait du bien.</p>
+          <p class="avis-text" style="margin-top:0.5rem;">Un lieu délicieux en tout point de vue, comme sa gérante. Courez-y, vous vous régalerez de spécialités portugaises ! Je reviendrai avec plaisir!</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ══ PAGE CONTACT ══ -->
   <div class="page" id="page-contact">
     <div class="contact-wrap">
       <div class="contact-info">
         <h2>Nous trouver</h2>
-        <p>À deux pas du centre du Perreux-sur-Marne, ouvert 7j/7.</p>
+        <p>À deux pas du centre du Perreux-sur-Marne.</p>
         <div class="contact-block">
           <div class="contact-block-label">Adresse</div>
           <p>68 ter Avenue Ledru Rollin<br>94170 Le Perreux-sur-Marne</p>
@@ -919,293 +639,8 @@
         </div>
         <div class="contact-block">
           <div class="contact-block-label">Instagram</div>
-          <p><a href="https://instagram.com" target="_blank">@boavida_leperreux</a></p>
+          <p><a href="https://www.instagram.com/boavida.cafe?igsh=M2cyZGVuMGUxYTE1&utm_source=qr" target="_blank">@boavida.cafe</a></p>
         </div>
         <div class="contact-block">
-          <div class="contact-block-label">Horaires</div>
-          <div class="horaires-grid">
-            <span class="horaires-day">Lundi</span><span class="horaires-time">8h00 – 19h00</span>
-            <span class="horaires-day">Mardi</span><span class="horaires-time">8h00 – 19h00</span>
-            <span class="horaires-day">Mercredi</span><span class="horaires-time">8h00 – 19h00</span>
-            <span class="horaires-day">Jeudi</span><span class="horaires-time">8h00 – 19h00</span>
-            <span class="horaires-day">Vendredi</span><span class="horaires-time">8h00 – 19h00</span>
-            <span class="horaires-day">Samedi</span><span class="horaires-time">8h30 – 19h00</span>
-            <span class="horaires-day">Dimanche</span><span class="horaires-time">9h00 – 14h00</span>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form">
-        <h2>Nous écrire</h2>
-        <p>Pour une commande spéciale, un événement ou juste dire bonjour.</p>
-        <div class="form-group">
-          <label>Votre nom</label>
-          <input type="text" placeholder="Marie Dupont" />
-        </div>
-        <div class="form-group">
-          <label>Votre e-mail</label>
-          <input type="email" placeholder="marie@email.com" />
-        </div>
-        <div class="form-group">
-          <label>Sujet</label>
-          <select>
-            <option>Commande spéciale / événement</option>
-            <option>Question sur nos produits</option>
-            <option>Partenariat / presse</option>
-            <option>Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Bonjour, je souhaitais..."></textarea>
-        </div>
-        <button class="form-submit" onclick="showToast('✉️ Message envoyé ! On vous répond vite.')">Envoyer le message</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ PAGE LÉGALES ══ -->
-  <div class="page" id="page-legales">
-    <div class="legales-wrap">
-      <h1>Documents légaux</h1>
-      <p style="color:var(--ink-muted);margin-top:0.5rem;">Informations légales, CGV et politique de confidentialité.</p>
-      <div class="placeholder-notice">
-        ⚠️ <strong>À compléter par Boa Vida :</strong> Les textes ci-dessous sont des modèles à personnaliser avec vos informations réelles (SIRET, raison sociale, coordonnées exactes) avant mise en ligne.
-      </div>
-      <div class="legales-tabs">
-        <button class="legales-tab active" onclick="showLegal('mentions')">Mentions légales</button>
-        <button class="legales-tab" onclick="showLegal('cgv')">CGV</button>
-        <button class="legales-tab" onclick="showLegal('rgpd')">Confidentialité</button>
-      </div>
-
-      <div class="legales-section active" id="legal-mentions">
-        <h2>Éditeur du site</h2>
-        <p>Raison sociale : [À compléter — ex : Boa Vida SARL]<br>
-        SIRET : [À compléter]<br>
-        Adresse : 68 ter Avenue Ledru Rollin, 94170 Le Perreux-sur-Marne<br>
-        Téléphone : 01 41 93 78 40</p>
-        <h2>Hébergement</h2>
-        <p>Ce site est hébergé par [Nom hébergeur, adresse, contact].</p>
-        <h2>Propriété intellectuelle</h2>
-        <p>L'ensemble du contenu de ce site (textes, images, visuels) est la propriété de Boa Vida et ne peut être reproduit sans autorisation écrite.</p>
-      </div>
-
-      <div class="legales-section" id="legal-cgv">
-        <h2>Objet</h2>
-        <p>Les présentes Conditions Générales de Vente s'appliquent à toutes les commandes passées via le service Click & Collect du site boavida.fr.</p>
-        <h2>Commandes</h2>
-        <p>La commande est confirmée après validation du paiement. Boa Vida se réserve le droit d'annuler une commande en cas de rupture de stock, avec remboursement intégral.</p>
-        <h2>Retrait</h2>
-        <p>Les commandes sont à retirer au 68 ter Av. Ledru Rollin, Le Perreux-sur-Marne, aux horaires d'ouverture, dans le créneau choisi lors de la commande.</p>
-        <h2>Remboursements</h2>
-        <p>En cas de problème avec votre commande, contactez-nous au 01 41 93 78 40. Nous procéderons à un remboursement ou un avoir selon les circonstances.</p>
-        <h2>Prix</h2>
-        <p>Les prix affichés sont en euros TTC. Boa Vida se réserve le droit de modifier ses tarifs à tout moment.</p>
-      </div>
-
-      <div class="legales-section" id="legal-rgpd">
-        <h2>Données collectées</h2>
-        <p>Lors d'une commande, nous collectons votre prénom et l'heure de retrait souhaitée, uniquement pour traiter votre commande.</p>
-        <h2>Utilisation des données</h2>
-        <p>Vos données ne sont jamais vendues à des tiers. Elles sont utilisées exclusivement pour la gestion des commandes Click & Collect.</p>
-        <h2>Vos droits</h2>
-        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez-nous à : [email@boavida.fr]</p>
-        <h2>Cookies</h2>
-        <p>Ce site n'utilise pas de cookies tiers à des fins publicitaires. Des cookies techniques essentiels au fonctionnement du site peuvent être utilisés.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div>
-      <div class="footer-logo">Boa <span>Vida</span></div>
-      <p>Salon de Thé · Coffee Shop · Épicerie Fine<br>Le Perreux-sur-Marne</p>
-      <p style="margin-top:1rem;">★★★★★ 4,9 · 86 avis Google</p>
-    </div>
-    <div>
-      <h4>Navigation</h4>
-      <a onclick="showPage('accueil')">Accueil</a>
-      <a onclick="showPage('menu')">Carte</a>
-      <a onclick="showPage('commander')">Commander</a>
-      <a onclick="showPage('histoire')">Notre histoire</a>
-      <a onclick="showPage('avis')">Avis</a>
-      <a onclick="showPage('contact')">Contact</a>
-    </div>
-    <div>
-      <h4>Infos pratiques</h4>
-      <p>68 ter Av. Ledru Rollin<br>94170 Le Perreux</p>
-      <p>01 41 93 78 40</p>
-      <p>Lun–Ven : 8h–19h<br>Sam : 8h30–19h<br>Dim : 9h–14h</p>
-    </div>
-    <div>
-      <h4>Légal</h4>
-      <a onclick="showPage('legales')">Mentions légales</a>
-      <a onclick="showPage('legales')">CGV</a>
-      <a onclick="showPage('legales')">Confidentialité</a>
-    </div>
-  </footer>
-  <div class="footer-bottom">© 2025 Boa Vida — Le Perreux-sur-Marne · Fait avec ❤️ et des pasteis</div>
-
-  <!-- TOAST -->
-  <div class="toast" id="toast"></div>
-
-  <script>
-    // ─── CART STATE ───
-    const cart = {};
-
-    const orderProducts = [
-      { name: 'Pastel de Nata', emoji: '🥐', desc: 'Frais du jour · Artisanal', price: 1.80 },
-      { name: 'Boule de Berlin', emoji: '🍩', desc: 'Crème vanille ou confiture', price: 2.50 },
-      { name: 'Galão', emoji: '☕', desc: 'Café latte portugais', price: 2.80 },
-      { name: 'Formule Petit-Déj', emoji: '🌅', desc: '2 pasteis + boisson chaude', price: 7.50 },
-      { name: 'Plateau 6 Pasteis', emoji: '🎁', desc: 'Boîte cadeau', price: 9.80 },
-      { name: 'Box Portugal', emoji: '🇵🇹', desc: 'Pasteis + épicerie fine', price: 22.00 },
-    ];
-
-    function renderOrderList() {
-      const el = document.getElementById('orderList');
-      el.innerHTML = orderProducts.map(p => `
-        <div class="order-item">
-          <div class="order-item-emoji">${p.emoji}</div>
-          <div class="order-item-info">
-            <div class="order-item-name">${p.name}</div>
-            <div class="order-item-sub">${p.desc}</div>
-          </div>
-          <div class="order-item-price">${p.price.toFixed(2).replace('.',',')} €</div>
-          <div class="qty-control">
-            <button class="qty-btn" onclick="changeQty('${p.name}', ${p.price}, -1)">−</button>
-            <span class="qty-num" id="qty-${p.name.replace(/\s/g,'_')}">${cart[p.name]?.qty || 0}</span>
-            <button class="qty-btn" onclick="changeQty('${p.name}', ${p.price}, 1)">+</button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function changeQty(name, price, delta) {
-      if (!cart[name]) cart[name] = { qty: 0, price };
-      cart[name].qty = Math.max(0, cart[name].qty + delta);
-      if (cart[name].qty === 0) delete cart[name];
-      const key = name.replace(/\s/g,'_');
-      const el = document.getElementById('qty-' + key);
-      if (el) el.textContent = cart[name]?.qty || 0;
-      updateCartPanel();
-      if (delta > 0) showToast(`✅ ${name} ajouté au panier`);
-    }
-
-    function addToCart(name, price) {
-      if (!cart[name]) cart[name] = { qty: 0, price };
-      cart[name].qty++;
-      updateCartPanel();
-      showToast(`✅ ${name} ajouté !`);
-    }
-
-    function updateCartPanel() {
-      const display = document.getElementById('cartDisplay');
-      const totals = document.getElementById('cartTotals');
-      const btn = document.getElementById('checkoutBtn');
-      const entries = Object.entries(cart);
-      if (entries.length === 0) {
-        display.innerHTML = '<p class="cart-empty">Votre panier est vide.<br>Ajoutez des produits depuis la carte.</p>';
-        totals.style.display = 'none';
-        btn.disabled = true;
-        return;
-      }
-      let total = 0;
-      display.innerHTML = entries.map(([name, {qty, price}]) => {
-        const line = qty * price;
-        total += line;
-        return `<div class="cart-line"><span>${qty}× ${name}</span><span>${line.toFixed(2).replace('.',',')} €</span></div>`;
-      }).join('');
-      totals.style.display = 'block';
-      document.getElementById('cartTotal').textContent = total.toFixed(2).replace('.',',') + ' €';
-      btn.disabled = false;
-    }
-
-    function handleCheckout() {
-      const name = document.getElementById('clientName').value.trim();
-      const time = document.getElementById('pickupTime').value;
-      if (!name) { showToast('⚠️ Veuillez entrer votre prénom'); return; }
-      if (!time) { showToast('⚠️ Choisissez un créneau de retrait'); return; }
-      showToast(`🎉 Commande confirmée pour ${name} à ${time} ! À tout à l'heure 🥐`);
-      setTimeout(() => {
-        Object.keys(cart).forEach(k => delete cart[k]);
-        updateCartPanel();
-        renderOrderList();
-        document.getElementById('clientName').value = '';
-        document.getElementById('pickupTime').value = '';
-      }, 2000);
-    }
-
-    // ─── NAVIGATION ───
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById('page-' + id).classList.add('active');
-      document.querySelectorAll('.nav-links a').forEach(a => {
-        a.classList.toggle('active', a.dataset.page === id);
-      });
-      window.scrollTo(0, 0);
-      document.getElementById('navLinks').classList.remove('open');
-      if (id === 'commander') renderOrderList();
-      history.pushState({}, '', '#' + id);
-    }
-
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
-
-    // ─── MENU TABS ───
-    function showCategory(cat) {
-      document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
-      document.getElementById('cat-' + cat).classList.add('active');
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-
-    // ─── LEGAL TABS ───
-    function showLegal(tab) {
-      document.querySelectorAll('.legales-section').forEach(s => s.classList.remove('active'));
-      document.getElementById('legal-' + tab).classList.add('active');
-      document.querySelectorAll('.legales-tab').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-
-    // ─── TOAST ───
-    function showToast(msg) {
-      const t = document.getElementById('toast');
-      t.textContent = msg; t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 2800);
-    }
-
-    // ─── AZULEJO PATTERN ───
-    function makeAzulejo() {
-      const grid = document.getElementById('azulejoGrid');
-      if (!grid) return;
-      for (let i = 0; i < 36; i++) {
-        const div = document.createElement('div');
-        div.className = 'azulejo-tile';
-        div.innerHTML = `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-          <rect width="60" height="60" fill="none"/>
-          <circle cx="30" cy="30" r="18" fill="none" stroke="white" stroke-width="1.5"/>
-          <circle cx="30" cy="30" r="10" fill="none" stroke="white" stroke-width="1"/>
-          <line x1="30" y1="0" x2="30" y2="60" stroke="white" stroke-width="0.8"/>
-          <line x1="0" y1="30" x2="60" y2="30" stroke="white" stroke-width="0.8"/>
-          <line x1="0" y1="0" x2="60" y2="60" stroke="white" stroke-width="0.5"/>
-          <line x1="60" y1="0" x2="0" y2="60" stroke="white" stroke-width="0.5"/>
-        </svg>`;
-        grid.appendChild(div);
-      }
-    }
-
-    // ─── HASH ROUTING ───
-    function handleHash() {
-      const hash = window.location.hash.replace('#', '');
-      const valid = ['accueil','menu','commander','histoire','avis','contact','legales'];
-      if (valid.includes(hash)) showPage(hash);
-    }
-
-    window.addEventListener('popstate', handleHash);
-    makeAzulejo();
-    handleHash();
-  </script>
-</body>
-</html>
+          <div class="contact-block-label">Informations pratiques</div>
+          <div class
