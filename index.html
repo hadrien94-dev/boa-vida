@@ -643,4 +643,82 @@
         </div>
         <div class="contact-block">
           <div class="contact-block-label">Informations pratiques</div>
-          <div class
+          <div class="tags-container">
+            <span class="info-tag">✔️ Sur place</span>
+            <span class="info-tag">🛍️ Vente à emporter</span>
+            <span class="info-tag">♿ Accessible en fauteuil roulant</span>
+            <span class="info-tag">💳 Cartes de crédit & débit</span>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">Horaires</div>
+          <div class="horaires-grid">
+            <span class="horaires-day">Lundi à Vendredi</span><span class="horaires-time">Ouvert — Ferme à 19:00</span>
+            <span class="horaires-day">Samedi</span><span class="horaires-time">Ouvert — Ferme à 19:00</span>
+            <span class="horaires-day">Dimanche</span><span class="horaires-time">Consulter la boutique</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-photo">
+        <img src="photo4.jpg" alt="Façade ou intérieur Boa Vida">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-logo">Boa <span>Vida</span></div>
+      <p>Salon de Thé · Coffee Shop · Épicerie Fine<br>Le Perreux-sur-Marne</p>
+      <p style="margin-top:1rem;">★★★★★ 4,9 · 86 avis Google</p>
+    </div>
+    <div>
+      <h4>Navigation</h4>
+      <a onclick="showPage('accueil')">Accueil</a>
+      <a onclick="showPage('menu')">Carte</a>
+      <a onclick="showPage('histoire')">Notre histoire</a>
+      <a onclick="showPage('avis')">Avis</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+    <div>
+      <h4>Infos pratiques</h4>
+      <p>68 ter Av. Ledru Rollin<br>94170 Le Perreux</p>
+      <p>01 41 93 78 40</p>
+      <p>Accessible en fauteuil roulant</p>
+    </div>
+  </footer>
+  <div class="footer-bottom">© 2026 Boa Vida — Le Perreux-sur-Marne · Fait avec ❤️ et des pasteis</div>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + id).classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.toggle('active', a.dataset.page === id);
+      });
+      window.scrollTo(0, 0);
+      document.getElementById('navLinks').classList.remove('open');
+      history.pushState({}, '', '#' + id);
+    }
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function showCategory(cat) {
+      document.querySelectorAll('.menu-category').forEach(c => c.classList.remove('active'));
+      document.getElementById('cat-' + cat).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function handleHash() {
+      const hash = window.location.hash.replace('#', '');
+      const valid = ['accueil','menu','histoire','avis','contact'];
+      if (valid.includes(hash)) showPage(hash);
+    }
+
+    window.addEventListener('popstate', handleHash);
+    handleHash();
+  </script>
+</body>
+</html>
