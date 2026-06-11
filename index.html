@@ -439,6 +439,23 @@
     .value-card p { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; }
 
     .avis-wrap { max-width: 1020px; margin: 0 auto; padding: 5rem 2rem; }
+
+    .avis-summary {
+      display: flex; justify-content: center; align-items: center;
+      background: var(--white-tile); border-radius: 12px;
+      padding: 2rem; margin-bottom: 3rem;
+      border: 1px solid var(--blue-pale);
+      text-align: center;
+    }
+    
+    .avis-big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 700; color: var(--blue); line-height: 1;
+    }
+    
+    .avis-big-stars { font-size: 1.4rem; color: var(--gold); margin: 0.4rem 0; }
+    
+    .avis-big-count { font-size: 0.9rem; color: var(--ink-muted); }
     
     .avis-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -698,6 +715,12 @@
     </ul>
     
     <div class="nav-socials">
+      <a href="https://www.google.fr/maps/place/Boa+Vida+-+Salon+de+Th%C3%A9+%2F+Coffee+Shop+%26+%C3%89picerie+Fine/@48.8423286,2.4995994,17z/data=!3m1!4b1!4m6!3m5!1s0x47e60d4eba15ff1d:0x82707b312ae67b68!8m2!3d48.8423286!4d2.5021743!16s%2Fg%2F11y01vg1js?hl=fr" target="_blank" class="nav-social-btn icon-only" title="Google Maps">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+      </a>
       <a href="https://www.tiktok.com/@boavida.cafe" target="_blank" class="nav-social-btn icon-only" title="TikTok">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
@@ -766,6 +789,10 @@
         <h3>L'âme des <em>azulejos</em> portugais</h3>
         <p>Ces carreaux bleu et blanc caractéristiques du Portugal ornent notre salon. Héritage du 15ème siècle, les azulejos racontent des histoires à travers leurs motifs géométriques et floraux.</p>
         <p style="margin-top:0.8rem;">Chez Boa Vida, leur présence rappelle les façades de Lisbonne et vous plonge dans l'ambiance unique des cafés portugais.</p>
+        
+        <div style="margin-top: 2rem;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3262804593457!2d2.49959937682283!3d48.842328571330696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60d4eba15ff1d%3A0x82707b312ae67b68!2sBoa%20Vida%20-%20Salon%20de%20Th%C3%A9%20%2F%20Coffee%20Shop%20%26%20%C3%89picerie%20Fine!5e0!3m2!1sfr!2sfr!4v1717621183350!5m2!1sfr!2sfr" width="100%" height="200" style="border:0; border-radius:8px; border: 1px solid var(--blue-pale);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
       <div class="azulejo-wall" id="azulejoWall"></div>
     </section>
@@ -924,26 +951,28 @@
         <div class="photo-grid-item tall" onclick="openLightbox('https://images.unsplash.com/photo-1514432324607-a125290bad81?auto=format&fit=crop&w=800&q=80')">
           <img src="https://images.unsplash.com/photo-1514432324607-a125290bad81?auto=format&fit=crop&w=800&q=80" alt="Expresso portugais" loading="lazy"/>
         </div>
+        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80" alt="Préparation café latte" loading="lazy"/>
+        </div>
+        
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80" alt="Pasteis de nata" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80" alt="Pasteis de nata dorés" loading="lazy"/>
         </div>
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80" alt="Pâtisserie portugaise" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80" alt="Assortiment de pâtisseries" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="Tapas et petiscos" loading="lazy"/>
+        <div class="photo-grid-item wide" onclick="openLightbox('https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80" alt="Tosta savoureuse" loading="lazy"/>
         </div>
+        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Sandwich et pain portugais" loading="lazy"/>
+        </div>
+
         <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Azulejos" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Azulejos portugais traditionnels" loading="lazy"/>
         </div>
-        <div class="photo-grid-item wide" onclick="openLightbox('https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80" alt="Ambiance Lisbonne" loading="lazy"/>
-        </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80" alt="Tosta et salé" loading="lazy"/>
-        </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80" alt="Préparation café" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80" alt="Ambiance café de Lisbonne" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -992,6 +1021,15 @@
         <p class="section-eyebrow">Ce que disent nos clients</p>
         <h2 class="section-title">Ils nous font <em>confiance</em></h2>
       </div>
+      
+      <div class="avis-summary">
+        <div class="avis-big-score">
+          <div class="avis-big-num">4,9</div>
+          <div class="avis-big-stars">★★★★★</div>
+          <div class="avis-big-count">86 avis sur <strong>Google Maps</strong></div>
+        </div>
+      </div>
+
       <div class="avis-grid">
         <div class="avis-card">
           <div class="avis-card-top">
@@ -1112,7 +1150,7 @@
           </ul>
         </div>
         <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.597148560117!2d2.493863776854124!3d48.84683070152431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60d9c4fb8b0cb%3A0xc6a89c9705a76c8c!2s68%20ter%20Av.%20Ledru%20Rollin%2C%2094170%20Le%20Perreux-sur-Marne!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3262804593457!2d2.49959937682283!3d48.842328571330696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60d4eba15ff1d%3A0x82707b312ae67b68!2sBoa%20Vida%20-%20Salon%20de%20Th%C3%A9%20%2F%20Coffee%20Shop%20%26%20%C3%89picerie%20Fine!5e0!3m2!1sfr!2sfr!4v1717621183350!5m2!1sfr!2sfr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <div class="contact-form">
@@ -1122,7 +1160,7 @@
           <input type="hidden" name="access_key" value="d30faa67-b86f-4cb9-890b-c2167e1726ae">
           <div class="form-group">
             <label>Votre nom</label>
-            <input type="text" name="name" required placeholder="Marie Dupont" />
+            <input type="text" name="Nom_Complet" required placeholder="Marie Dupont" />
           </div>
           <div class="form-group">
             <label>Votre e-mail</label>
@@ -1130,7 +1168,7 @@
           </div>
           <div class="form-group">
             <label>Sujet</label>
-            <select name="subject">
+            <select name="Sujet_Demande">
               <option>Commande spéciale / événement</option>
               <option>Question sur nos produits</option>
               <option>Partenariat / presse</option>
