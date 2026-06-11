@@ -7,13 +7,16 @@
 <meta name="description" content="Parenthèse portugaise au Perreux-sur-Marne. Pasteis de nata artisanaux, épicerie fine et ambiance chaleureuse. Repas sur place et à emporter.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Ajout de FontAwesome pour les icônes sociales -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
   --bg: #FDFBF7;
   --bg-card: #FFFFFF;
   --bg-dark: #1B3B5C;
-  --bg-texture: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h-2v20h-2v-20h-2v20h-2v-20h-2v20h-2v-20h-2v20h-2v-20h-2v20h-2v20H20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20z' fill='%231b3b5c' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+  /* Fond texturé accentué pour plus de profondeur */
+  --bg-texture: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h2v-20h2v20h-2v20h-2v-20h-2v20h-2v-20h-2v20h-2v-20h-2v20h-2v-20h-2v20h-2v20H20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20z' fill='%231b3b5c' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
   --accent: #C8604A;
   --accent-warm: #A04535;
   --accent-light: #E88A76;
@@ -23,11 +26,11 @@
   --ink-dim: #5A554E;
   --muted: #8C8781;
   --border: rgba(27,59,92,0.1);
-  --border-fine: rgba(27,59,92,0.05);
+  --border-fine: rgba(27,59,92,0.08);
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', sans-serif;
   --ease: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  --radius: 8px;
+  --radius: 12px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -45,19 +48,20 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; height: auto; }
 
+/* Animations Fade-in fluides */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
   will-change: opacity, transform;
 }
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
 
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -71,7 +75,7 @@ nav {
 nav.scrolled { height: 60px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
 .nav-logo {
   font-family: var(--font-display);
-  font-size: 1.4rem; font-weight: 700;
+  font-size: 1.5rem; font-weight: 800;
   color: var(--navy); letter-spacing: 0.02em;
 }
 .nav-logo span { font-style: italic; font-weight: 400; color: var(--accent); }
@@ -79,19 +83,25 @@ nav.scrolled { height: 60px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
   display: flex; align-items: center; gap: 2.5rem; list-style: none;
 }
 .nav-links a {
-  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--ink-dim); font-weight: 500; transition: color 0.3s;
+  font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--ink-dim); font-weight: 600; transition: color 0.3s;
 }
 .nav-links a:hover { color: var(--accent); }
+
+/* Boutons et CTA renforcés */
 .nav-cta {
   display: inline-flex; align-items: center;
-  padding: 0.6rem 1.5rem;
+  padding: 0.7rem 1.8rem;
   background: var(--navy); color: #fff;
   font-size: 0.75rem; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
-  border-radius: 50px; transition: var(--ease);
+  border-radius: 50px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.nav-cta:hover { background: var(--accent); box-shadow: 0 8px 20px rgba(200,96,74,0.3); transform: translateY(-2px); }
+.nav-cta:hover { 
+  background: var(--accent); 
+  box-shadow: 0 10px 25px rgba(200,96,74,0.4); 
+  transform: translateY(-3px) scale(1.02); 
+}
 
 .hero {
   min-height: 100svh;
@@ -104,213 +114,249 @@ nav.scrolled { height: 60px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
 }
 .hero-content { position: relative; z-index: 2; }
 .hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.8rem;
-  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--accent); font-weight: 600; margin-bottom: 1.5rem;
+  display: inline-flex; align-items: center; gap: 1rem;
+  font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 1.5rem;
 }
 .hero-eyebrow::before {
-  content: ''; width: 40px; height: 1px; background: var(--accent);
+  content: ''; width: 50px; height: 2px; background: var(--accent);
 }
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 5vw, 5.5rem);
-  font-weight: 700; line-height: 1.05;
-  color: var(--ink); letter-spacing: -0.02em; margin-bottom: 1.5rem;
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 800; line-height: 1.05;
+  color: var(--ink); letter-spacing: -0.03em; margin-bottom: 1.8rem;
 }
 .hero-title em { font-style: italic; font-weight: 400; color: var(--navy); }
 .hero-body {
-  font-size: 1.1rem; color: var(--ink-dim);
+  font-size: 1.15rem; color: var(--ink-dim);
   max-width: 480px; line-height: 1.8; margin-bottom: 2.5rem;
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 1rem 2.2rem;
+  padding: 1.1rem 2.5rem;
   background: var(--accent); color: #fff;
-  font-size: 0.8rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  border-radius: 50px; transition: var(--ease); border: none; cursor: pointer;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  border-radius: 50px; transition: all 0.4s var(--ease); border: none; cursor: pointer;
   box-shadow: 0 4px 15px rgba(200,96,74,0.2);
 }
-.btn-primary:hover { background: var(--accent-warm); transform: translateY(-4px); box-shadow: 0 12px 25px rgba(200,96,74,0.35); }
+.btn-primary:hover { 
+  background: var(--accent-warm); 
+  transform: translateY(-5px); 
+  box-shadow: 0 15px 30px rgba(200,96,74,0.4); 
+}
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 1rem 2.2rem;
+  padding: 1.1rem 2.5rem;
   background: transparent; color: var(--navy);
-  font-size: 0.8rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  border: 1px solid var(--border);
-  border-radius: 50px; transition: var(--ease); cursor: pointer;
+  font-size: 0.85rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  border: 2px solid var(--border);
+  border-radius: 50px; transition: all 0.4s var(--ease); cursor: pointer;
 }
-.btn-ghost:hover { border-color: var(--navy); background: rgba(27,59,92,0.03); transform: translateY(-2px); }
+.btn-ghost:hover { 
+  border-color: var(--navy); 
+  background: rgba(27,59,92,0.04); 
+  transform: translateY(-3px); 
+}
+
+/* Diaporama (Carousel) */
 .hero-image-wrapper {
   position: relative;
-}
-.hero-image-wrapper img {
   border-radius: var(--radius);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-  aspect-ratio: 4/5; object-fit: cover;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+  aspect-ratio: 4/5;
+  overflow: hidden;
 }
+.hero-slide {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 5s ease-in-out;
+  transform: scale(1.05);
+}
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .hero-floating-card {
-  position: absolute; bottom: -2rem; left: -3rem;
-  background: var(--bg-card); padding: 1.5rem;
-  border-radius: var(--radius); box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-  display: flex; align-items: center; gap: 1rem;
+  position: absolute; bottom: -2rem; left: -3rem; z-index: 10;
+  background: var(--bg-card); padding: 1.5rem 2rem;
+  border-radius: var(--radius); box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  display: flex; align-items: center; gap: 1.2rem;
+  transition: transform 0.3s var(--ease);
 }
+.hero-floating-card:hover { transform: translateY(-5px) scale(1.02); }
 .hero-floating-icon {
-  width: 48px; height: 48px; background: var(--bg); border-radius: 50%;
+  width: 52px; height: 52px; background: var(--bg); border-radius: 50%;
   display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--accent);
 }
 
 .the-banner {
   background: var(--navy); color: #fff;
-  padding: 1rem 5vw; display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-  flex-wrap: wrap; text-align: center; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+  padding: 1.2rem 5vw; display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+  flex-wrap: wrap; text-align: center; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
 }
 .the-banner span { color: var(--accent-light); }
 
 .section-eyebrow {
-  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--accent); font-weight: 600; margin-bottom: 0.8rem;
+  font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 1rem;
 }
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4vw, 3.8rem);
-  font-weight: 700; color: var(--ink); line-height: 1.1; margin-bottom: 1.5rem;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 800; color: var(--ink); line-height: 1.1; margin-bottom: 1.5rem;
 }
 .section-title em { font-style: italic; font-weight: 400; color: var(--navy); }
 
+/* Effet de superposition et storytelling */
 .signature-section {
-  padding: 8rem 5vw; max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 6rem; align-items: center;
+  padding: 10rem 5vw; max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 8rem; align-items: center;
 }
 .signature-images {
   position: relative;
 }
 .signature-img-main {
   border-radius: var(--radius); width: 100%; aspect-ratio: 3/4; object-fit: cover;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1); z-index: 2; position: relative;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15); z-index: 2; position: relative;
 }
 .signature-img-sub {
-  position: absolute; bottom: -3rem; right: -3rem; width: 60%;
-  border-radius: var(--radius); border: 8px solid var(--bg);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08); z-index: 3;
+  position: absolute; bottom: -4rem; right: -4rem; width: 65%;
+  border-radius: var(--radius); border: 12px solid var(--bg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12); z-index: 3;
+  transition: transform 0.5s var(--ease);
 }
-.signature-text p { font-size: 1.05rem; margin-bottom: 1.5rem; }
+.signature-images:hover .signature-img-sub {
+  transform: translate(10px, -10px) rotate(2deg);
+}
+.signature-text p { font-size: 1.1rem; margin-bottom: 1.8rem; line-height: 1.9; }
 
 .carte-section {
-  padding: 8rem 5vw; background: var(--bg-card);
+  padding: 10rem 5vw; background: var(--bg-card);
   border-top: 1px solid var(--border-fine); border-bottom: 1px solid var(--border-fine);
 }
 .carte-header {
-  max-width: 1100px; margin: 0 auto 4rem; text-align: center;
+  max-width: 1100px; margin: 0 auto 5rem; text-align: center;
 }
 .carte-tabs {
-  display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;
 }
 .carte-tab {
-  padding: 0.7rem 1.8rem;
-  background: var(--bg); border: 1px solid var(--border);
-  color: var(--ink-dim); font-family: var(--font-body); font-size: 0.8rem;
-  font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-  cursor: pointer; border-radius: 50px; transition: var(--ease);
+  padding: 0.8rem 2rem;
+  background: var(--bg); border: 2px solid var(--border-fine);
+  color: var(--ink-dim); font-family: var(--font-body); font-size: 0.85rem;
+  font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  cursor: pointer; border-radius: 50px; transition: all 0.3s var(--ease);
 }
-.carte-tab.active { background: var(--navy); border-color: var(--navy); color: #fff; }
-.carte-tab:not(.active):hover { border-color: var(--navy); color: var(--navy); transform: translateY(-2px); }
+.carte-tab.active { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 0 10px 20px rgba(27,59,92,0.2); }
+.carte-tab:not(.active):hover { border-color: var(--navy); color: var(--navy); transform: translateY(-3px); }
 
 .carte-grid { max-width: 1100px; margin: 0 auto; }
 .carte-panel { display: none; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
 .carte-panel.active { display: grid; }
 
+/* Amélioration des cartes Menu (Relief & Hover) */
 .plat-card {
-  background: var(--bg); border: 1px solid var(--border-fine);
-  padding: 2.2rem; display: flex; flex-direction: column; gap: 0.5rem;
-  border-radius: var(--radius); transition: var(--ease); position: relative;
+  background: var(--bg-card); 
+  border-radius: 12px; 
+  padding: 2.5rem; 
+  border: 1px solid var(--border-fine);
+  display: flex; flex-direction: column; gap: 0.5rem;
+  transition: all 0.4s var(--ease); 
+  position: relative;
+  cursor: pointer; /* Curseur interactif */
 }
-.plat-card:hover { 
-  border-color: var(--accent-light); 
-  box-shadow: 0 20px 40px rgba(27,59,92,0.06); 
+.plat-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
   transform: translateY(-8px); 
+  border-color: var(--accent); 
 }
 .plat-name {
-  font-family: var(--font-display); font-size: 1.3rem;
-  font-weight: 600; color: var(--ink);
+  font-family: var(--font-display); font-size: 1.4rem;
+  font-weight: 700; color: var(--ink);
 }
-.plat-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-top: 0.5rem; }
+.plat-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-top: 0.5rem; }
 .plat-prix {
-  margin-top: auto; padding-top: 1.5rem; font-size: 1.15rem; font-weight: 700;
+  margin-top: auto; padding-top: 1.5rem; font-size: 1.25rem; font-weight: 800;
   color: var(--accent); font-family: var(--font-body); display: flex; justify-content: space-between; align-items: center;
 }
 .plat-add {
-  width: 36px; height: 36px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center; color: var(--navy); transition: var(--ease); cursor: pointer;
+  width: 42px; height: 42px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border-fine);
+  display: flex; align-items: center; justify-content: center; color: var(--navy); transition: all 0.3s var(--ease); font-weight: 600;
 }
-.plat-card:hover .plat-add { background: var(--accent); color: #fff; border-color: var(--accent); }
+.plat-card:hover .plat-add { background: var(--accent); color: #fff; border-color: var(--accent); transform: rotate(90deg); }
 
-.avis-section { padding: 8rem 5vw; }
+.avis-section { padding: 10rem 5vw; }
 .avis-inner { max-width: 1200px; margin: 0 auto; }
-.avis-header { text-align: center; margin-bottom: 4rem; }
+.avis-header { text-align: center; margin-bottom: 5rem; }
 .avis-score {
-  display: flex; align-items: center; justify-content: center; gap: 2rem; margin-top: 2rem;
+  display: flex; align-items: center; justify-content: center; gap: 2.5rem; margin-top: 2.5rem;
 }
 .score-number {
-  font-family: var(--font-display); font-size: 5rem;
-  font-weight: 700; color: var(--navy); line-height: 1;
+  font-family: var(--font-display); font-size: 6rem;
+  font-weight: 800; color: var(--navy); line-height: 1;
 }
-.score-stars { color: #E5A93B; font-size: 1.4rem; letter-spacing: 0.2em; margin-bottom: 0.5rem; }
-.score-label { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.05em; font-weight: 500; }
-.avis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.score-stars { color: #E5A93B; font-size: 1.6rem; letter-spacing: 0.25em; margin-bottom: 0.5rem; }
+.score-label { font-size: 0.9rem; color: var(--muted); letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase; }
+.avis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
 .avis-card {
-  padding: 2.5rem; background: var(--bg-card);
+  padding: 3rem; background: var(--bg-card);
   border: 1px solid var(--border-fine); border-radius: var(--radius);
-  transition: var(--ease); box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  transition: all 0.4s var(--ease); box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
-.avis-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); }
-.avis-stars { color: #E5A93B; font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1.2rem; }
-.avis-text { font-size: 0.95rem; line-height: 1.7; color: var(--ink-dim); margin-bottom: 1.5rem; }
-.avis-author { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
+.avis-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--navy-light); }
+.avis-stars { color: #E5A93B; font-size: 1rem; letter-spacing: 0.15em; margin-bottom: 1.5rem; }
+.avis-text { font-size: 1rem; line-height: 1.8; color: var(--ink-dim); margin-bottom: 2rem; font-style: italic; }
+.avis-author { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy); }
 
-.infos-section { padding: 8rem 5vw; background: var(--bg-card); border-top: 1px solid var(--border-fine); }
+.infos-section { padding: 10rem 5vw; background: var(--bg-card); border-top: 1px solid var(--border-fine); }
 .infos-inner {
   max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center;
 }
-.info-block { margin-bottom: 2.5rem; }
+.info-block { margin-bottom: 3rem; }
 .info-label {
-  font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--accent); font-weight: 600; display: block; margin-bottom: 0.5rem;
+  font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; display: block; margin-bottom: 0.8rem;
 }
-.info-value { font-size: 1.1rem; color: var(--ink); line-height: 1.6; font-weight: 500; }
-.hours-table { width: 100%; margin-top: 1rem; border-collapse: collapse; }
-.hours-table td { padding: 0.8rem 0; font-size: 0.95rem; border-bottom: 1px solid var(--border-fine); }
-.hours-table td:first-child { color: var(--muted); }
-.hours-table td:last-child { font-weight: 500; text-align: right; }
+.info-value { font-size: 1.2rem; color: var(--ink); line-height: 1.6; font-weight: 500; }
+.hours-table { width: 100%; margin-top: 1.5rem; border-collapse: collapse; }
+.hours-table td { padding: 1rem 0; font-size: 1rem; border-bottom: 1px solid var(--border-fine); }
+.hours-table td:first-child { color: var(--muted); font-weight: 500; }
+.hours-table td:last-child { font-weight: 600; text-align: right; color: var(--ink); }
 .map-wrap {
-  width: 100%; aspect-ratio: 1/1; border-radius: var(--radius); overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  width: 100%; aspect-ratio: 1/1.1; border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.12); position: relative;
 }
 .map-wrap iframe { width: 100%; height: 100%; border: none; }
 
 footer {
-  padding: 4rem 5vw; background: var(--navy); color: #fff;
-  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;
+  padding: 5rem 5vw; background: var(--navy); color: #fff;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2.5rem;
 }
-.footer-logo { font-family: var(--font-display); font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; }
+.footer-logo { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; letter-spacing: 0.02em; }
 .footer-logo span { font-style: italic; font-weight: 400; color: var(--accent-light); }
 .footer-socials { display: flex; gap: 1.5rem; }
 .footer-socials a {
-  width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05);
-  display: flex; align-items: center; justify-content: center; transition: var(--ease);
+  width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center; transition: all 0.3s var(--ease); font-size: 1.2rem;
 }
-.footer-socials a:hover { background: var(--accent); transform: translateY(-3px); }
-.footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+.footer-socials a:hover { background: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(200,96,74,0.3); }
+.footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; }
 
 @media (max-width: 960px) {
   .nav-links { display: none; }
-  .hero-inner, .signature-section, .infos-inner { grid-template-columns: 1fr; gap: 4rem; }
-  .hero { padding-top: 10rem; }
-  .signature-img-sub { width: 40%; bottom: -1.5rem; right: -1.5rem; }
+  .hero-inner, .signature-section, .infos-inner { grid-template-columns: 1fr; gap: 5rem; }
+  .hero { padding-top: 12rem; }
+  .signature-img-sub { width: 50%; bottom: -2rem; right: -2rem; }
   .carte-panel { grid-template-columns: 1fr; }
+  .hero-floating-card { left: 1rem; right: 1rem; bottom: -3rem; }
 }
 </style>
 </head>
@@ -340,13 +386,18 @@ footer {
         <a href="#infos" class="btn-ghost">Venir nous voir</a>
       </div>
     </div>
+    
+    <!-- Nouveau Diaporama (Carousel) -->
     <div class="hero-image-wrapper reveal delay-2">
-      <img src="photo1.jpg" alt="Façade Boa Vida" loading="lazy">
+      <img src="photo1.jpg" alt="Façade Boa Vida" class="hero-slide active" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Intérieur chaleureux" class="hero-slide" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1600354266395-9271638e21de?auto=format&fit=crop&w=800&q=80" alt="Comptoir gourmand" class="hero-slide" loading="lazy">
+      
       <div class="hero-floating-card">
-        <div class="hero-floating-icon">☕</div>
+        <div class="hero-floating-icon"><i class="fa-solid fa-mug-hot"></i></div>
         <div>
-          <div style="font-weight:700; font-size:0.9rem; color:var(--ink);">Ouvert 6j/7</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Fermeture à 19:00</div>
+          <div style="font-weight:800; font-size:1rem; color:var(--ink);">Ouvert 6j/7</div>
+          <div style="font-size:0.85rem; color:var(--muted); font-weight:500;">Fermeture à 19:00</div>
         </div>
       </div>
     </div>
@@ -371,8 +422,8 @@ footer {
     <p>
       C'est la cuisson à très haute température qui donne à nos Pastéis de Nata cette couleur caramélisée unique et ce cœur fondant à la première bouchée. Nos recettes n'ont pas voyagé seules : elles viennent des familles, des marchés et des boulangeries de Lisbonne.
     </p>
-    <p style="margin-top:2rem;">
-      <a href="#carte" class="nav-cta" style="background:var(--bg-card); color:var(--navy); border:1px solid var(--border);">Goûter la différence</a>
+    <p style="margin-top:2.5rem;">
+      <a href="#carte" class="nav-cta" style="background:var(--bg-card); color:var(--navy); border:2px solid var(--border-fine);">Goûter la différence</a>
     </p>
   </div>
 </section>
@@ -381,7 +432,7 @@ footer {
   <div class="carte-header reveal">
     <div class="section-eyebrow">Menu</div>
     <h2 class="section-title">Notre <em>Carte</em></h2>
-    <img src="photo3.jpg" alt="Gourmandises Boa Vida" style="width:100%; max-width:800px; margin: 0 auto 2rem; border-radius:var(--radius); box-shadow:0 15px 40px rgba(0,0,0,0.06);" loading="lazy">
+    <img src="photo3.jpg" alt="Gourmandises Boa Vida" style="width:100%; max-width:800px; margin: 0 auto 3rem; border-radius:var(--radius); box-shadow:0 20px 50px rgba(0,0,0,0.1);" loading="lazy">
     <div class="carte-tabs" role="tablist">
       <button class="carte-tab active" data-panel="sucrees" role="tab" aria-selected="true">Pâtisseries</button>
       <button class="carte-tab" data-panel="salees" role="tab">Salé</button>
@@ -392,42 +443,42 @@ footer {
 
   <div class="carte-grid reveal delay-1">
     <div class="carte-panel active" id="panel-sucrees">
-      <div class="plat-card"><div class="plat-name">Pastel de Nata</div><div class="plat-prix">2.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Pastel de Nata Choco</div><div class="plat-prix">2.60 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Pastel de Nata Amande</div><div class="plat-prix">2.60 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Pastel de Coco</div><div class="plat-prix">2.60 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Pastel de Feijao</div><div class="plat-prix">2.60 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Bola de Berlim</div><div class="plat-prix">3.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Guardanapo</div><div class="plat-prix">3.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Corneto</div><div class="plat-prix">3.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Bolo de Arroz</div><div class="plat-prix">2.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Tartine / Torrada Beurre</div><div class="plat-prix">2.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Tosta Nutella</div><div class="plat-prix">2.60 €<div class="plat-add">+</div></div></div>
+      <div class="plat-card"><div class="plat-name">Pastel de Nata</div><div class="plat-prix">2.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Pastel de Nata Choco</div><div class="plat-prix">2.60 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Pastel de Nata Amande</div><div class="plat-prix">2.60 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Pastel de Coco</div><div class="plat-prix">2.60 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Pastel de Feijao</div><div class="plat-prix">2.60 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Bola de Berlim</div><div class="plat-prix">3.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Guardanapo</div><div class="plat-prix">3.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Corneto</div><div class="plat-prix">3.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Bolo de Arroz</div><div class="plat-prix">2.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Tartine / Torrada Beurre</div><div class="plat-prix">2.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Tosta Nutella</div><div class="plat-prix">2.60 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
     </div>
 
     <div class="carte-panel" id="panel-salees">
-      <div class="plat-card"><div class="plat-name">Tosta Mista</div><div class="plat-desc">Fromage & Jambon</div><div class="plat-prix">4.90 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Tosta Chèvre / Miel</div><div class="plat-desc">Chèvre, miel, tomate séchée, mâche</div><div class="plat-prix">5.90 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Pao Com Chorizo</div><div class="plat-prix">3.90 €<div class="plat-add">+</div></div></div>
+      <div class="plat-card"><div class="plat-name">Tosta Mista</div><div class="plat-desc">Fromage & Jambon</div><div class="plat-prix">4.90 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Tosta Chèvre / Miel</div><div class="plat-desc">Chèvre, miel, tomate séchée, mâche</div><div class="plat-prix">5.90 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Pao Com Chorizo</div><div class="plat-prix">3.90 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
     </div>
 
     <div class="carte-panel" id="panel-chaudes">
-      <div class="plat-card"><div class="plat-name">Expresso</div><div class="plat-prix">2.00 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Café Allongé</div><div class="plat-prix">3.00 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Galao / Latte</div><div class="plat-prix">3.90 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Capuccino</div><div class="plat-prix">3.90 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Chocolat Chaud</div><div class="plat-prix">3.90 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Thé / Infusions</div><div class="plat-desc">Menthe, Pomme Canelle, Fruits Rouge, Mélisse, Camomille</div><div class="plat-prix">3.90 €<div class="plat-add">+</div></div></div>
+      <div class="plat-card"><div class="plat-name">Expresso</div><div class="plat-prix">2.00 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Café Allongé</div><div class="plat-prix">3.00 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Galao / Latte</div><div class="plat-prix">3.90 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Capuccino</div><div class="plat-prix">3.90 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Chocolat Chaud</div><div class="plat-prix">3.90 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Thé / Infusions</div><div class="plat-desc">Menthe, Pomme Canelle, Fruits Rouge, Mélisse, Camomille</div><div class="plat-prix">3.90 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
     </div>
 
     <div class="carte-panel" id="panel-fraiches">
-      <div class="plat-card"><div class="plat-name">Coca Cola 33cl</div><div class="plat-prix">3.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Sumol 30cl</div><div class="plat-desc">Orange / Ananas</div><div class="plat-prix">3.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Frize</div><div class="plat-desc">Original / Limao / Groseille</div><div class="plat-prix">3.00 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Eau Plate 33 cl</div><div class="plat-prix">2.00 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Super Bock 25cl</div><div class="plat-prix">3.50 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Lait Chocolaté Ucal 25cl</div><div class="plat-prix">3.00 €<div class="plat-add">+</div></div></div>
-      <div class="plat-card"><div class="plat-name">Jus Compal 20 cl</div><div class="plat-desc">Pomme, Mangue, Orange, Carotte, Ananas, Coco, Multifruits</div><div class="plat-prix">3.00 €<div class="plat-add">+</div></div></div>
+      <div class="plat-card"><div class="plat-name">Coca Cola 33cl</div><div class="plat-prix">3.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Sumol 30cl</div><div class="plat-desc">Orange / Ananas</div><div class="plat-prix">3.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Frize</div><div class="plat-desc">Original / Limao / Groseille</div><div class="plat-prix">3.00 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Eau Plate 33 cl</div><div class="plat-prix">2.00 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Super Bock 25cl</div><div class="plat-prix">3.50 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Lait Chocolaté Ucal 25cl</div><div class="plat-prix">3.00 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
+      <div class="plat-card"><div class="plat-name">Jus Compal 20 cl</div><div class="plat-desc">Pomme, Mangue, Orange, Carotte, Ananas, Coco, Multifruits</div><div class="plat-prix">3.00 €<div class="plat-add"><i class="fa-solid fa-plus"></i></div></div></div>
     </div>
   </div>
 </section>
@@ -481,14 +532,16 @@ footer {
       <div class="section-eyebrow">Informations</div>
       <h2 class="section-title">Venez nous <em>rencontrer</em></h2>
       
-      <div class="info-block" style="margin-top:3rem;">
+      <div class="info-block" style="margin-top:4rem;">
         <span class="info-label">Adresse</span>
         <span class="info-value">68 ter Avenue Ledru Rollin<br>94170 Le Perreux-sur-Marne</span>
+        <!-- Nouveau bouton Itinéraire direct avec le lien Google fourni -->
+        <a href="https://www.google.fr/maps/place/Boa+Vida+-+Salon+de+Th%C3%A9+%2F+Coffee+Shop+%26+%C3%89picerie+Fine/@48.8423286,2.4995994,17z/data=!3m1!4b1!4m6!3m5!1s0x47e60d4eba15ff1d:0x82707b312ae67b68!8m2!3d48.8423286!4d2.5021743!16s%2Fg%2F11y01vg1js?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="nav-cta" style="margin-top: 1rem;"><i class="fa-solid fa-location-dot" style="margin-right:8px;"></i> Y aller</a>
       </div>
 
       <div class="info-block">
         <span class="info-label">Téléphone</span>
-        <a href="tel:0141937840" class="info-value" style="color:var(--accent); display:inline-block; transition:var(--ease);">01 41 93 78 40</a>
+        <a href="tel:0141937840" class="info-value" style="color:var(--accent); display:inline-block; transition:var(--ease); font-weight: 700;">01 41 93 78 40</a>
       </div>
 
       <div class="info-block">
@@ -500,7 +553,7 @@ footer {
         </table>
       </div>
 
-      <img src="photo4.jpg" alt="Dégustation Boa Vida" style="border-radius:var(--radius); margin-top:2rem;" loading="lazy">
+      <img src="photo4.jpg" alt="Dégustation Boa Vida" style="border-radius:var(--radius); margin-top:3rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1);" loading="lazy">
     </div>
 
     <div class="map-wrap reveal delay-2">
@@ -519,13 +572,17 @@ footer {
   <div class="footer-logo">Boa <span>Vida</span></div>
   <div class="footer-socials">
     <a href="https://www.instagram.com/boavida.cafe" target="_blank" aria-label="Instagram">
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="#" target="_blank" aria-label="Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
     </a>
   </div>
   <div class="footer-copy">© 2026 Boa Vida · 68 ter Av. Ledru Rollin, Le Perreux-sur-Marne</div>
 </footer>
 
 <script>
+// Gestion de la navigation au scroll
 (function() {
   var nav = document.getElementById('mainNav');
   window.addEventListener('scroll', function() {
@@ -533,6 +590,7 @@ footer {
   }, { passive: true });
 })();
 
+// Animation d'apparition des éléments (Fade-in)
 var observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
 var observer = new IntersectionObserver(function(entries, observer) {
   entries.forEach(function(entry) {
@@ -547,6 +605,7 @@ document.querySelectorAll('.reveal').forEach(function(el) {
   observer.observe(el);
 });
 
+// Système d'onglets pour le menu
 document.querySelectorAll('.carte-tab').forEach(function(tab) {
   tab.addEventListener('click', function() {
     document.querySelectorAll('.carte-tab').forEach(function(t) {
@@ -563,6 +622,7 @@ document.querySelectorAll('.carte-tab').forEach(function(tab) {
   });
 });
 
+// Navigation fluide des ancres
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
     var target = document.querySelector(this.getAttribute('href'));
@@ -572,6 +632,20 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     }
   });
 });
+
+// Logique du Diaporama Hero
+(function() {
+  const slides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+  
+  if(slides.length > 1) {
+    setInterval(function() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4500); // Change d'image toutes les 4,5 secondes
+  }
+})();
 </script>
 </body>
 </html>
