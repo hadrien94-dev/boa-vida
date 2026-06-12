@@ -401,6 +401,11 @@
     }
     
     .az-tile svg { width: 100%; height: 100%; display: block; }
+    
+    .azulejo-map {
+      grid-column: span 2;
+      width: 100%;
+    }
 
     .histoire-wrap { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; }
     
@@ -713,7 +718,10 @@
       .histoire-hero { grid-template-columns: 1fr; }
       .histoire-values { grid-template-columns: 1fr 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
-      .azulejo-showcase { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      
+      .azulejo-showcase { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+      .azulejo-map { grid-column: span 1; }
+      
       footer { grid-template-columns: 1fr 1fr; padding: 2.5rem 1.5rem; gap: 2rem; }
       .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; gap: 0.3rem; text-align: center; }
       nav { padding: 0 1.5rem; }
@@ -849,13 +857,12 @@
         <h3>L'âme des <em>azulejos</em> portugais</h3>
         <p>Ces carreaux bleu et blanc caractéristiques du Portugal ornent notre salon. Héritage du 15ème siècle, les azulejos racontent des histoires à travers leurs motifs géométriques et floraux.</p>
         <p style="margin-top:0.8rem;">Chez Boa Vida, leur présence rappelle les façades de Lisbonne et vous plonge dans l'ambiance unique des cafés portugais.</p>
-        
-        <div style="margin-top: 2rem;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3262804593457!2d2.49959937682283!3d48.842328571330696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60d4eba15ff1d%3A0x82707b312ae67b68!2sBoa%20Vida%20-%20Salon%20de%20Th%C3%A9%20%2F%20Coffee%20Shop%20%26%20%C3%89picerie%20Fine!5e0!3m2!1sfr!2sfr!4v1717621183350!5m2!1sfr!2sfr" width="100%" height="200" style="border:0; border-radius:8px; border: 1px solid var(--blue-pale);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
       </div>
       <div class="azulejo-wall" id="azulejoWall">
         <img src="photo6.jpg" alt="Carrelage portugais Boa Vida" style="width:100%; height:100%; object-fit:cover; border-radius: 10px; grid-column: span 6; display: block;">
+      </div>
+      <div class="azulejo-map" style="margin-top: 2rem;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.3262804593457!2d2.49959937682283!3d48.842328571330696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e60d4eba15ff1d%3A0x82707b312ae67b68!2sBoa%20Vida%20-%20Salon%20de%20Th%C3%A9%20%2F%20Coffee%20Shop%20%26%20%C3%89picerie%20Fine!5e0!3m2!1sfr!2sfr!4v1717621183350!5m2!1sfr!2sfr" width="100%" height="200" style="border:0; border-radius:8px; border: 1px solid var(--blue-pale);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </div>
@@ -1345,7 +1352,6 @@
       });
       window.scrollTo(0, 0);
       document.getElementById('navLinks').classList.remove('open');
-      history.pushState({}, '', '#' + id);
     }
 
     function toggleMenu() {
@@ -1387,15 +1393,7 @@
       setTimeout(() => t.classList.remove('show'), 2800);
     }
 
-    function handleHash() {
-      const hash = window.location.hash.replace('#', '');
-      const valid = ['accueil','menu','galerie','histoire','avis','contact','legales'];
-      if (valid.includes(hash)) showPage(hash);
-    }
-
-    window.addEventListener('popstate', handleHash);
     buildAzulejoWall();
-    handleHash();
   </script>
 </body>
 </html>
