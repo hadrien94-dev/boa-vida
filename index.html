@@ -258,10 +258,18 @@
     .tab-btn.active, .tab-btn:hover {
       background: var(--terracotta); color: var(--white); border-color: var(--terracotta);
     }
+
+    @keyframes fadeMenu {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     
     .menu-category { display: none; }
     
-    .menu-category.active { display: block; }
+    .menu-category.active { 
+      display: block; 
+      animation: fadeMenu 0.4s ease-out forwards;
+    }
     
     .menu-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -969,31 +977,23 @@
         <p class="section-sub">Venez découvrir notre salon de thé cosy au cœur du Perreux — et laissez les photos vous donner faim.</p>
       </div>
       <div class="photo-grid">
-        <div class="photo-grid-item tall" onclick="openLightbox('https://images.unsplash.com/photo-1514432324607-a125290bad81?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1514432324607-a125290bad81?auto=format&fit=crop&w=800&q=80" alt="Expresso portugais" loading="lazy"/>
+        <div class="photo-grid-item tall" onclick="openLightbox('https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?w=800')">
+          <img src="https://images.unsplash.com/photo-1591081658714-f576fb7ea3ed?w=800" alt="Cupcakes bruns sur plateau d'argent" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80" alt="Préparation café latte" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1558961312-50341c62ff2a?w=800')">
+          <img src="https://images.unsplash.com/photo-1558961312-50341c62ff2a?w=800" alt="Main tenant une petite pâtisserie devant un plan d'eau" loading="lazy"/>
         </div>
-        
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1528938102132-4a9276b8e320?auto=format&fit=crop&w=800&q=80" alt="Pasteis de nata dorés" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('https://static.delhaize.be/medias/sys_master/recipes/h82/h3e/13793965047838.jpg')">
+          <img src="https://static.delhaize.be/medias/sys_master/recipes/h82/h3e/13793965047838.jpg" alt="Recette Delhaize" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1601002360537-84bc500e5728?auto=format&fit=crop&w=800&q=80" alt="Assortiment de pâtisseries" loading="lazy"/>
+        <div class="photo-grid-item wide" onclick="openLightbox('https://canelas.fr/cdn/shop/products/Canelas-217_8ae65481-29fd-4dd8-86ab-b3ae04be6aba_600x.jpg')">
+          <img src="https://canelas.fr/cdn/shop/products/Canelas-217_8ae65481-29fd-4dd8-86ab-b3ae04be6aba_600x.jpg" alt="Pâtisserie Canelas" loading="lazy"/>
         </div>
-        <div class="photo-grid-item wide" onclick="openLightbox('https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?auto=format&fit=crop&w=800&q=80" alt="Tosta savoureuse" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('https://canelas.fr/cdn/shop/products/Canelas-197_7c606233-c0ad-4b34-839b-5e6e33f7df42_600x.jpg')">
+          <img src="https://canelas.fr/cdn/shop/products/Canelas-197_7c606233-c0ad-4b34-839b-5e6e33f7df42_600x.jpg" alt="Pâtisserie Canelas" loading="lazy"/>
         </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Sandwich et pain portugais" loading="lazy"/>
-        </div>
-
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Azulejos portugais traditionnels" loading="lazy"/>
-        </div>
-        <div class="photo-grid-item" onclick="openLightbox('https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80')">
-          <img src="https://images.unsplash.com/photo-1558102822-da570eb113ed?auto=format&fit=crop&w=800&q=80" alt="Ambiance café de Lisbonne" loading="lazy"/>
+        <div class="photo-grid-item" onclick="openLightbox('https://www.portugalvineyards.com/102726-home_default/super-bock-original.jpg')">
+          <img src="https://www.portugalvineyards.com/102726-home_default/super-bock-original.jpg" alt="Super Bock Original" loading="lazy"/>
         </div>
       </div>
     </div>
@@ -1302,9 +1302,6 @@
     function buildAzulejoWall() {
       const wall = document.getElementById('azulejoWall');
       if (!wall) return;
-      
-      // La création du mur d'azulejos SVG a été supprimée puisque 
-      // nous utilisons l'image photo6.jpg à la place.
     }
 
     function showPage(id) {
@@ -1343,10 +1340,12 @@
       lb.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
+    
     function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
       document.body.style.overflow = '';
     }
+    
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
     function showToast(msg) {
