@@ -1345,7 +1345,6 @@
       });
       window.scrollTo(0, 0);
       document.getElementById('navLinks').classList.remove('open');
-      history.pushState({}, '', '#' + id);
     }
 
     function toggleMenu() {
@@ -1387,15 +1386,7 @@
       setTimeout(() => t.classList.remove('show'), 2800);
     }
 
-    function handleHash() {
-      const hash = window.location.hash.replace('#', '');
-      const valid = ['accueil','menu','galerie','histoire','avis','contact','legales'];
-      if (valid.includes(hash)) showPage(hash);
-    }
-
-    window.addEventListener('popstate', handleHash);
     buildAzulejoWall();
-    handleHash();
   </script>
 </body>
 </html>
