@@ -828,69 +828,12 @@
       </div>
 
       <div class="menu-tabs">
-        <button class="tab-btn active" onclick="showCategory('boissons', event)">☕ Boissons</button>
-        <button class="tab-btn" onclick="showCategory('patisseries', event)">🥐 Pâtisseries</button>
+        <button class="tab-btn active" onclick="showCategory('patisseries', event)">🥐 Pâtisseries</button>
         <button class="tab-btn" onclick="showCategory('sales', event)">🥪 Salés</button>
+        <button class="tab-btn" onclick="showCategory('boissons', event)">☕ Boissons</button>
       </div>
 
-      <div class="menu-category active" id="cat-boissons">
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Fraîches —</h3>
-        <div class="menu-grid" style="margin-bottom:2.5rem;">
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Coca Cola 33cl</span><span class="menu-card-price">3,50 €</span></div>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Sumol Orange / Ananas 30cl</span><span class="menu-card-price">3,50 €</span></div>
-            <p class="menu-card-desc">Soda portugais iconique</p>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Frize Original / Limão / Groseille</span><span class="menu-card-price">3,00 €</span></div>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Eau plate 33cl</span><span class="menu-card-price">2,00 €</span></div>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Super Bock 25cl</span><span class="menu-card-price">3,50 €</span></div>
-            <p class="menu-card-desc">Bière blonde portugaise</p>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Lait chocolaté Ucal 25cl</span><span class="menu-card-price">3,00 €</span></div>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Jus Compal 20cl</span><span class="menu-card-price">3,00 €</span></div>
-            <p class="menu-card-desc">Pomme · Mangue/Orange/Carotte · Ananas/Coco · Multifruits · Orange</p>
-          </div>
-        </div>
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Chaudes —</h3>
-        <div class="menu-grid">
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Expresso</span><span class="menu-card-price">2,00 €</span></div>
-            <p class="menu-card-desc">Café intense, la base de tout</p>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Café allongé</span><span class="menu-card-price">3,00 €</span></div>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Galão / Latte</span><span class="menu-card-price">3,90 €</span></div>
-            <p class="menu-card-desc">Le grand café au lait portugais — espresso allongé, beaucoup de lait moussé</p>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Cappuccino</span><span class="menu-card-price">3,90 €</span></div>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Chocolat chaud</span><span class="menu-card-price">3,90 €</span></div>
-          </div>
-          <div class="menu-card">
-            <div class="menu-card-top"><span class="menu-card-name">Thé / Infusions</span><span class="menu-card-price">3,90 €</span></div>
-            <p class="menu-card-desc">Menthe · Pomme Canelle · Fruits Rouges · Mélisse · Camomille</p>
-          </div>
-        </div>
-        <div class="menu-note" style="margin-top:1.5rem;">
-          * Lait d'avoine sur demande : +0,50 € · Ajout sirop vanille ou caramel : +0,20 €
-        </div>
-      </div>
-
-      <div class="menu-category" id="cat-patisseries">
+      <div class="menu-category active" id="cat-patisseries">
         <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Sucrés —</h3>
         <div class="menu-grid">
           <div class="menu-card">
@@ -956,6 +899,63 @@
             <div class="menu-card-top"><span class="menu-card-name">Pão com Chorizo</span><span class="menu-card-price">3,90 €</span></div>
             <p class="menu-card-desc">Pain au chorizo épicé, recette traditionnelle portugaise</p>
           </div>
+        </div>
+      </div>
+
+      <div class="menu-category" id="cat-boissons">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Fraîches —</h3>
+        <div class="menu-grid" style="margin-bottom:2.5rem;">
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Coca Cola 33cl</span><span class="menu-card-price">3,50 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Sumol Orange / Ananas 30cl</span><span class="menu-card-price">3,50 €</span></div>
+            <p class="menu-card-desc">Soda portugais iconique</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Frize Original / Limão / Groseille</span><span class="menu-card-price">3,00 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Eau plate 33cl</span><span class="menu-card-price">2,00 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Super Bock 25cl</span><span class="menu-card-price">3,50 €</span></div>
+            <p class="menu-card-desc">Bière blonde portugaise</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Lait chocolaté Ucal 25cl</span><span class="menu-card-price">3,00 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Jus Compal 20cl</span><span class="menu-card-price">3,00 €</span></div>
+            <p class="menu-card-desc">Pomme · Mangue/Orange/Carotte · Ananas/Coco · Multifruits · Orange</p>
+          </div>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--terracotta); margin-bottom:1.5rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">— Chaudes —</h3>
+        <div class="menu-grid">
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Expresso</span><span class="menu-card-price">2,00 €</span></div>
+            <p class="menu-card-desc">Café intense, la base de tout</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Café allongé</span><span class="menu-card-price">3,00 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Galão / Latte</span><span class="menu-card-price">3,90 €</span></div>
+            <p class="menu-card-desc">Le grand café au lait portugais — espresso allongé, beaucoup de lait moussé</p>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Cappuccino</span><span class="menu-card-price">3,90 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Chocolat chaud</span><span class="menu-card-price">3,90 €</span></div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-top"><span class="menu-card-name">Thé / Infusions</span><span class="menu-card-price">3,90 €</span></div>
+            <p class="menu-card-desc">Menthe · Pomme Canelle · Fruits Rouges · Mélisse · Camomille</p>
+          </div>
+        </div>
+        <div class="menu-note" style="margin-top:1.5rem;">
+          * Lait d'avoine sur demande : +0,50 € · Ajout sirop vanille ou caramel : +0,20 €
         </div>
       </div>
     </div>
