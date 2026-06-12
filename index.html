@@ -167,6 +167,10 @@
     
     .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
 
+    .hero-photo-mobile {
+      display: none;
+    }
+
     .hero-visual {
       display: block;
       min-height: calc(100vh - 64px);
@@ -697,6 +701,14 @@
       .hero { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
       .hero-text { padding: 3rem 1.5rem; }
+      .hero-photo-mobile {
+        display: block;
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+      }
       .features { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
       .histoire-hero { grid-template-columns: 1fr; }
       .histoire-values { grid-template-columns: 1fr 1fr; }
@@ -705,14 +717,34 @@
       footer { grid-template-columns: 1fr 1fr; padding: 2.5rem 1.5rem; gap: 2rem; }
       .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; gap: 0.3rem; text-align: center; }
       nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: fixed; top: 64px; left: 0; right: 0;
-        background: var(--cream); padding: 1.5rem 2rem;
-        border-bottom: 1px solid var(--cream-mid); z-index: 99;
+      
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 0 2rem;
+        z-index: 99;
         gap: 1rem;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-8px);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border-bottom: none;
       }
+      
+      .nav-links.open {
+        max-height: 400px;
+        opacity: 1;
+        transform: translateY(0);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--cream-mid);
+      }
+
       .nav-burger { display: flex; }
       .nav-socials { display: none; }
       .photo-grid { grid-template-columns: 1fr 1fr; }
@@ -783,6 +815,7 @@
           <button class="btn-primary" onclick="showPage('menu')">Voir la carte</button>
           <button class="btn-secondary" onclick="showPage('contact')">Nous trouver →</button>
         </div>
+        <img src="photo5.jpg" alt="Spécialités portugaises Boa Vida" class="hero-photo-mobile" loading="lazy" />
       </div>
       <div class="hero-visual">
         <div class="hero-photo" onclick="openLightbox('photo5.jpg')">
