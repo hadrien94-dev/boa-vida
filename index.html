@@ -74,6 +74,12 @@
     }
     
     .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
     
     .nav-socials {
       display: flex; gap: 0.5rem; align-items: center;
@@ -377,6 +383,10 @@
       border-bottom: 1px solid var(--blue-pale);
     }
     
+    .azulejo-showcase-text {
+      order: 1;
+    }
+    
     .azulejo-showcase-text h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem; margin-bottom: 1rem; color: var(--ink);
@@ -392,6 +402,8 @@
       display: grid; grid-template-columns: repeat(6, 1fr);
       gap: 3px; border-radius: 10px; overflow: hidden;
       box-shadow: 0 12px 40px rgba(27,58,107,0.15);
+      order: 2;
+      grid-row: span 2;
     }
     
     .az-tile {
@@ -403,7 +415,9 @@
     .az-tile svg { width: 100%; height: 100%; display: block; }
     
     .azulejo-map {
-      grid-column: span 2;
+      order: 3;
+      grid-column: 1;
+      grid-row: 2;
       width: 100%;
     }
 
@@ -720,7 +734,9 @@
       .contact-wrap { grid-template-columns: 1fr; }
       
       .azulejo-showcase { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
-      .azulejo-map { grid-column: span 1; }
+      .azulejo-showcase-text { order: 1; }
+      .azulejo-wall { order: 2; grid-row: auto; width: 100%; }
+      .azulejo-map { order: 3; grid-column: auto; grid-row: auto; width: 100%; margin-top: 0; }
       
       footer { grid-template-columns: 1fr 1fr; padding: 2.5rem 1.5rem; gap: 2rem; }
       .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; gap: 0.3rem; text-align: center; }
@@ -753,8 +769,10 @@
         border-bottom: 1px solid var(--cream-mid);
       }
 
+      .nav-controls { gap: 1rem; }
+      .map-btn { display: none; }
       .nav-burger { display: flex; }
-      .nav-socials { display: none; }
+      
       .photo-grid { grid-template-columns: 1fr 1fr; }
     }
     
@@ -781,29 +799,30 @@
       <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
     </ul>
     
-    <div class="nav-socials">
-      <a href="https://www.google.fr/maps/place/Boa+Vida+-+Salon+de+Th%C3%A9+%2F+Coffee+Shop+%26+%C3%89picerie+Fine/@48.8423286,2.4995994,17z/data=!3m1!4b1!4m6!3m5!1s0x47e60d4eba15ff1d:0x82707b312ae67b68!8m2!3d48.8423286!4d2.5021743!16s%2Fg%2F11y01vg1js?hl=fr" target="_blank" class="nav-social-btn icon-only" title="Google Maps">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-      </a>
-      <a href="https://www.tiktok.com/@boavida.cafe" target="_blank" class="nav-social-btn icon-only" title="TikTok">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-        </svg>
-      </a>
-      <a href="https://www.instagram.com/boavida.cafe" target="_blank" class="nav-social-btn icon-only" title="Instagram">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
-      </a>
-    </div>
-
-    <div class="nav-burger" id="burger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+    <div class="nav-controls">
+      <div class="nav-socials">
+        <a href="https://www.google.fr/maps/place/Boa+Vida+-+Salon+de+Th%C3%A9+%2F+Coffee+Shop+%26+%C3%89picerie+Fine/@48.8423286,2.4995994,17z/data=!3m1!4b1!4m6!3m5!1s0x47e60d4eba15ff1d:0x82707b312ae67b68!8m2!3d48.8423286!4d2.5021743!16s%2Fg%2F11y01vg1js?hl=fr" target="_blank" class="nav-social-btn icon-only map-btn" title="Google Maps">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@boavida.cafe" target="_blank" class="nav-social-btn icon-only" title="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/boavida.cafe" target="_blank" class="nav-social-btn icon-only" title="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+      </div>
+      <div class="nav-burger" id="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </nav>
 
